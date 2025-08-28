@@ -964,7 +964,8 @@ export const flashcardsData: FlashcardData[] = [
 "language": "Java",
 "difficulty": "intermediate",
 "category": "Collections",
-"code": "ArrayList<String> list = new ArrayList<>();\nlist.add("hello"); // Adds an element dynamically",
+"code": `ArrayList<String> list = new ArrayList<>();
+list.add("hello"); // Adds an element dynamically`,
 "xpReward": 50
 },
 {
@@ -1202,7 +1203,13 @@ export const flashcardsData: FlashcardData[] = [
 "language": "C++",
 "difficulty": "advanced",
 "category": "Polymorphism",
-"code": "class Animal {\npublic:\n    virtual void sound() {\n        cout << "Animal sound";\n    }\n};",
+"code": `class Animal {
+public:
+    virtual void sound() {
+        cout << "Animal sound";
+    }
+};`,
+
 "xpReward": 75
 },
 {
@@ -1270,7 +1277,8 @@ export const flashcardsData: FlashcardData[] = [
 "language": "C++",
 "difficulty": "beginner",
 "category": "Namespaces",
-"code": "using namespace std;\ncout << "Hello";",
+"code": `using namespace std;
+cout << "Hello";`,
 "xpReward": 25
 },
 {
