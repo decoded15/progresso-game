@@ -1186,7 +1186,12 @@ list.add("hello"); // Adds an element dynamically`,
 "language": "C++",
 "difficulty": "beginner",
 "category": "Basics",
-"code": "#include <iostream>\nusing namespace std;\nint main() {\n    cout << "Hello";\n}",
+"code": `#include <iostream>
+using namespace std;
+int main() {
+    cout << "Hello";
+}`,
+
 "xpReward": 25
 },
 {
