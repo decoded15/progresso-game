@@ -1,11 +1,14 @@
 export interface FlashcardData {
   id: number;
   question: string;
-  answer: string;
+  options: string[];
+  correctAnswer: number;
   language: string;
   difficulty: 'beginner' | 'intermediate' | 'advanced';
   category: string;
   code?: string;
+  xpReward: number;
+  explanation : string;
 }
 
 export const flashcardsData: FlashcardData[] = [
@@ -224,8 +227,7 @@ export const flashcardsData: FlashcardData[] = [
 "Error"
 ],
 "correctAnswer": 1,
-"explanation": "The // operator performs floor division, which returns the integer part of the division result. 5
-div2=2.5, so the floor is 2.",
+"explanation": "The // operator performs floor division, which returns the integer part of the division result. 5 / 2=2.5, so the floor is 2.",
 "language": "Python",
 "difficulty": "beginner",
 "category": "Operators",
@@ -944,7 +946,7 @@ div2=2.5, so the floor is 2.",
 "language": "JavaScript",
 "difficulty": "beginner",
 "category": "JSON",
-"code": "const jsonString = '{"name": "Alice"}';\nconst obj = JSON.parse(jsonString);\nconsole.log(obj.name); // Alice",
+"code": "const jsonString = '{\"name\": \"Alice\"}';\nconst obj = JSON.parse(jsonString);\nconsole.log(obj.name); // Alice",
 "xpReward": 25
 },
 // Java Quizzes
