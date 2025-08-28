@@ -3,6 +3,8 @@ import Hero from "@/components/Hero";
 import GameDashboard from "@/components/GameDashboard";
 import LanguageSelector from "@/components/LanguageSelector";
 import FlashcardComponent from "@/components/Flashcard";
+import Quiz from "@/components/Quiz";
+import CheatSheet from "@/components/CheatSheet";
 import Leaderboard from "@/components/Leaderboard";
 
 const Index = () => {
@@ -14,6 +16,8 @@ const Index = () => {
         <GameDashboard />
         <LanguageSelector />
         <FlashcardComponent />
+        <Quiz />
+        <CheatSheet />
         <Leaderboard />
       </main>
     </div>
