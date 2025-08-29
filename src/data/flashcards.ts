@@ -1,1318 +1,1228 @@
 export interface FlashcardData {
   id: number;
   question: string;
-  options: string[];
-  correctAnswer: number;
+  answer: string;
   language: string;
   difficulty: 'beginner' | 'intermediate' | 'advanced';
   category: string;
   code?: string;
   xpReward: number;
-  explanation : string;
 }
 
 export const flashcardsData: FlashcardData[] = [
-  // Python Flashcards
+  // Python Flashcards (30 cards)
   {
-"id": 1,
-"question": "Which of the following is the correct way to define a function in Python?",
-"options": [
-"function myFunc():",
-"def myFunc():",
-"define myFunc():",
-"func myFunc():"
-],
-"correctAnswer": 1,
-"explanation": "In Python, functions are defined using the 'def' keyword followed by the function name and parameters.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Functions",
-"code": "def my_function():\n    print('Hello, World!')",
-"xpReward": 25
-},
-{
-"id": 2,
-"question": "What will be the output of the following Python code?",
-"options": [
-"10",
-"5",
-"Error",
-"None"
-],
-"correctAnswer": 0,
-"explanation": "The ** operator in Python is used for exponentiation. 23 + 2 = 8 + 2 = 10",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Operators",
-"code": "result = 23 + 2\nprint(result)",
-"xpReward": 25
-},
-{
-"id": 3,
-"question": "Which method is used to add an element to the end of a list in Python?",
-"options": [
-"add()",
-"append()",
-"insert()",
-"push()"
-],
-"correctAnswer": 1,
-"explanation": "The append() method adds an element to the end of a list. add() and push() don't exist for lists, insert() adds at a specific position.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Lists",
-"code": "my_list = [1, 2, 3]\nmy_list.append(4)\nprint(my_list)  # [1, 2, 3, 4]",
-"xpReward": 25
-},
-{
-"id": 4,
-"question": "What is the output of this list comprehension?",
-"options": [
-"[0, 1, 4, 9, 16]",
-"[1, 2, 3, 4, 5]",
-"[0, 2, 4, 6, 8]",
-"[1, 4, 9, 16, 25]"
-],
-"correctAnswer": 0,
-"explanation": "List comprehension [x2 for x in range(5)] creates squares of numbers 0 to 4: 0², 1², 2², 3², 4² = [0, 1, 4, 9, 16]",
-"language": "Python",
-"difficulty": "intermediate",
-"category": "Lists",
-"code": "squares = [x2 for x in range(5)]\nprint(squares)",
-"xpReward": 50
-},
-{
-"id": 5,
-"question": "What is the purpose of the 'self' parameter in Python class methods?",
-"options": [
-"It's a reserved keyword",
-"It refers to the current instance of the class",
-"It's used for inheritance",
-"It's optional and can be omitted"
-],
-"correctAnswer": 1,
-"explanation": "'self' refers to the current instance of the class, allowing access to the instance's attributes and methods.",
-"language": "Python",
-"difficulty": "intermediate",
-"category": "Classes",
-"code": "class MyClass:\n    def init(self, name):\n        self.name = name\n    \n    def greet(self):\n        return f'Hello, {self.name}!'",
-"xpReward": 50
-},
-{
-"id": 6,
-"question": "Which of the following data types is mutable?",
-"options": [
-"string",
-"tuple",
-"list",
-"frozenset"
-],
-"correctAnswer": 2,
-"explanation": "A list is a mutable data type, meaning its elements can be changed after creation. Strings, tuples, and frozensets are all immutable.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Data Types",
-"code": "my_list = [1, 2, 3]\nmy_list[0] = 10\nprint(my_list) # [10, 2, 3]",
-"xpReward": 25
-},
-{
-"id": 7,
-"question": "What is the correct way to open a file named 'data.txt' for reading?",
-"options": [
-"open('data.txt', 'r')",
-"open('data.txt', 'read')",
-"open('data.txt', 'o')",
-"read('data.txt')"
-],
-"correctAnswer": 0,
-"explanation": "The built-in open() function is used to open files. The second argument, 'r', specifies that the file should be opened in read mode.",
-"language": "Python",
-"difficulty": "intermediate",
-"category": "File I/O",
-"code": "with open('data.txt', 'r') as file:\n    content = file.read()",
-"xpReward": 50
-},
-{
-"id": 8,
-"question": "What does pip stand for?",
-"options": [
-"Python Install Packages",
-"Preferred Installer Program",
-"Programming in Python",
-"Package Information Protocol"
-],
-"correctAnswer": 1,
-"explanation": "pip is the package installer for Python. Its name is a recursive acronym, standing for 'Pip Installs Packages' or 'Preferred Installer Program'.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Modules and Packages",
-"code": "pip install requests",
-"xpReward": 25
-},
-{
-"id": 9,
-"question": "What will be the output of type(type(int))?",
-"options": [
-"<class 'int'>",
-"<class 'type'>",
-"Error",
-"None"
-],
-"correctAnswer": 1,
-"explanation": "type(int) returns the type of the int class, which is type. Therefore, type(type(int)) returns the type of type, which is also type.",
-"language": "Python",
-"difficulty": "advanced",
-"category": "Data Types",
-"code": "print(type(type(int)))",
-"xpReward": 75
-},
-{
-"id": 10,
-"question": "How do you handle exceptions in Python?",
-"options": [
-"using 'try...catch' blocks",
-"using 'if...else' statements",
-"using 'try...except' blocks",
-"using 'throw...catch' statements"
-],
-"correctAnswer": 2,
-"explanation": "Python uses the try and except blocks to handle exceptions. The code that might raise an exception is placed in the try block, and the code to handle it is in the except block.",
-"language": "Python",
-"difficulty": "intermediate",
-"category": "Exception Handling",
-"code": "try:\n    result = 10 / 0\nexcept ZeroDivisionError:\n    print('Cannot divide by zero!')",
-"xpReward": 50
-},
-{
-"id": 11,
-"question": "What is a generator in Python?",
-"options": [
-"A function that returns a value immediately.",
-"A type of loop for creating lists.",
-"A function that uses the yield keyword to return an iterator.",
-"A built-in class for creating sequences."
-],
-"correctAnswer": 2,
-"explanation": "A generator is a special type of function that returns an iterator. It uses the yield keyword to produce a series of values one at a time, saving memory.",
-"language": "Python",
-"difficulty": "advanced",
-"category": "Functions",
-"code": "def my_generator():\n    yield 1\n    yield 2\n    yield 3",
-"xpReward": 75
-},
-{
-"id": 12,
-"question": "Which of the following is an example of a tuple?",
-"options": [
-"{1, 2, 3}",
-"[1, 2, 3]",
-"(1, 2, 3)",
-"'1, 2, 3'"
-],
-"correctAnswer": 2,
-"explanation": "A tuple is an immutable sequence of elements, defined by enclosing values in parentheses (). Lists use [], and sets use {}.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Data Types",
-"code": "my_tuple = ('apple', 'banana', 'cherry')\nprint(my_tuple[0]) # 'apple'",
-"xpReward": 25
-},
-{
-"id": 13,
-"question": "What is the output of print(5 // 2)?",
-"options": [
-"2.5",
-"2",
-"3",
-"Error"
-],
-"correctAnswer": 1,
-"explanation": "The // operator performs floor division, which returns the integer part of the division result. 5 / 2=2.5, so the floor is 2.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Operators",
-"code": "print(5 // 2)",
-"xpReward": 25
-},
-{
-"id": 14,
-"question": "How do you create a dictionary in Python?",
-"options": [
-"my_dict = {key: value}",
-"my_dict = [key: value]",
-"my_dict = (key: value)",
-"my_dict = key: value"
-],
-"correctAnswer": 0,
-"explanation": "A dictionary is an unordered collection of key-value pairs, defined using curly braces {} with a colon : separating each key and its value.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Data Types",
-"code": "my_dict = {'name': 'Alice', 'age': 30}\nprint(my_dict['name']) # 'Alice'",
-"xpReward": 25
-},
-{
-"id": 15,
-"question": "What is a lambda function?",
-"options": [
-"A function that returns a list.",
-"A small, anonymous function defined with the lambda keyword.",
-"A function for handling file I/O.",
-"A function that always returns None."
-],
-"correctAnswer": 1,
-"explanation": "A lambda function is a small, anonymous function. It can have any number of arguments but can only have one expression. It's often used for simple, short functions.",
-"language": "Python",
-"difficulty": "intermediate",
-"category": "Functions",
-"code": "add = lambda a, b: a + b\nprint(add(2, 3)) # 5",
-"xpReward": 50
-},
-{
-"id": 16,
-"question": "Which loop is used to iterate over a sequence?",
-"options": [
-"while",
-"for",
-"do-while",
-"loop-until"
-],
-"correctAnswer": 1,
-"explanation": "The for loop is used to iterate over the items of any sequence (like a list, tuple, or string) or other iterable objects.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Control Flow",
-"code": "fruits = ['apple', 'banana', 'cherry']\nfor fruit in fruits:\n    print(fruit)",
-"xpReward": 25
-},
-{
-"id": 17,
-"question": "What is the purpose of the pass statement?",
-"options": [
-"To end a loop or function.",
-"To raise an exception.",
-"To do nothing; it's a placeholder.",
-"To exit the program."
-],
-"correctAnswer": 2,
-"explanation": "The pass statement is a null operation. It's used as a placeholder when a statement is syntactically required but you don't want to execute any code.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Control Flow",
-"code": "def my_func():\n    pass # This function does nothing yet.",
-"xpReward": 25
-},
-{
-"id": 18,
-"question": "What is a decorator in Python?",
-"options": [
-"A design pattern used to modify the behavior of a function or class.",
-"A keyword used to define a new class.",
-"A type of function that returns another function.",
-"A way to add comments to code."
-],
-"correctAnswer": 0,
-"explanation": "A decorator is a powerful design pattern in Python that allows you to wrap another function or class to extend or modify its behavior without permanently altering the original.",
-"language": "Python",
-"difficulty": "advanced",
-"category": "Functions",
-"code": "@my_decorator\ndef my_func():\n    pass",
-"xpReward": 75
-},
-{
-"id": 19,
-"question": "What is the output of len('hello world')?",
-"options": [
-"11",
-"10",
-"12",
-"Error"
-],
-"correctAnswer": 0,
-"explanation": "The len() function returns the number of items in an object. The string 'hello world' has 11 characters, including the space.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Strings",
-"code": "print(len('hello world'))",
-"xpReward": 25
-},
-{
-"id": 20,
-"question": "How do you create an empty set in Python?",
-"options": [
-"my_set = {}",
-"my_set = set()",
-"my_set = []",
-"my_set = ()"
-],
-"correctAnswer": 1,
-"explanation": "An empty dictionary is created with {}, so to create an empty set, you must use the set() constructor. my_set = {} creates an empty dictionary.",
-"language": "Python",
-"difficulty": "intermediate",
-"category": "Data Types",
-"code": "my_set = set()\nprint(type(my_set))",
-"xpReward": 50
-},
-{
-"id": 21,
-"question": "What is the correct syntax for a simple if statement?",
-"options": [
-"if condition:",
-"if condition then:",
-"if (condition)",
-"if condition"
-],
-"correctAnswer": 0,
-"explanation": "An if statement requires a condition followed by a colon : and an indented block of code to be executed if the condition is true.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Control Flow",
-"code": "if 5 > 2:\n    print('True')",
-"xpReward": 25
-},
-{
-"id": 22,
-"question": "What is the purpose of the __init__ method?",
-"options": [
-"It is a destructor for an object.",
-"It is a special method called when a class is imported.",
-"It is a constructor used to initialize an object's state.",
-"It is a method for inheritance."
-],
-"correctAnswer": 2,
-"explanation": "The __init__ method is a constructor. It's automatically called when a new instance of a class is created, allowing you to set up the object's initial attributes.",
-"language": "Python",
-"difficulty": "intermediate",
-"category": "Classes",
-"code": "class Dog:\n    def init(self, name):\n        self.name = name",
-"xpReward": 50
-},
-{
-"id": 23,
-"question": "Which keyword is used to import a module?",
-"options": [
-"include",
-"import",
-"get",
-"require"
-],
-"correctAnswer": 1,
-"explanation": "The import keyword is used to bring modules or specific functions/classes from modules into the current namespace.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Modules and Packages",
-"code": "import math\nprint(math.pi)",
-"xpReward": 25
-},
-{
-"id": 24,
-"question": "What is the output of [1, 2, 3] + [4, 5]?",
-"options": [
-"[1, 2, 3, 4, 5]",
-"[5, 7, 3]",
-"Error",
-"1, 2, 3, 4, 5"
-],
-"correctAnswer": 0,
-"explanation": "The + operator, when used with lists, performs concatenation, joining the two lists together to form a new single list.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Lists",
-"code": "list1 = [1, 2, 3]\nlist2 = [4, 5]\nprint(list1 + list2)",
-"xpReward": 25
-},
-{
-"id": 25,
-"question": "What is a list comprehension?",
-"options": [
-"A way to create a list using a for loop inside a list literal.",
-"A method for sorting a list.",
-"A built-in function for list manipulation.",
-"A way to compress a list."
-],
-"correctAnswer": 0,
-"explanation": "A list comprehension provides a concise way to create lists. It consists of brackets containing an expression followed by a for clause, and then zero or more for or if clauses.",
-"language": "Python",
-"difficulty": "intermediate",
-"category": "Lists",
-"code": "squares = [x2 for x in range(10)]",
-"xpReward": 50
-},
-{
-"id": 26,
-"question": "What is the main difference between range() and a list?",
-"options": [
-"range is faster for loops.",
-"range generates numbers on demand (lazily), while a list stores all numbers in memory.",
-"You can't use range in a for loop.",
-"range is mutable, and a list is not."
-],
-"correctAnswer": 1,
-"explanation": "range() generates numbers as they are needed, making it memory-efficient for large sequences. A list, in contrast, stores all its elements in memory at once.",
-"language": "Python",
-"difficulty": "intermediate",
-"category": "Iterators",
-"code": "my_range = range(1000000)\nmy_list = list(my_range) # This will take up a lot of memory.",
-"xpReward": 50
-},
-{
-"id": 27,
-"question": "How do you cast an integer to a string?",
-"options": [
-"str(my_int)",
-"string(my_int)",
-"to_string(my_int)",
-"my_int.str()"
-],
-"correctAnswer": 0,
-"explanation": "The built-in str() function is used to convert an object into a string representation.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Data Types",
-"code": "my_int = 123\nmy_string = str(my_int)\nprint(my_string) # '123'",
-"xpReward": 25
-},
-{
-"id": 28,
-"question": "Which of the following is an example of a keyword argument?",
-"options": [
-"my_func(1, 2)",
-"my_func(a=1, b=2)",
-"my_func(1, b=2)",
-"my_func(1, (2,))"
-],
-"correctAnswer": 1,
-"explanation": "A keyword argument is an argument passed to a function that is preceded by a variable name and an equals sign. The order of keyword arguments doesn't matter.",
-"language": "Python",
-"difficulty": "intermediate",
-"category": "Functions",
-"code": "def my_func(a, b):\n    print(f'a: {a}, b: {b}')\n\nmy_func(b=2, a=1)",
-"xpReward": 50
-},
-{
-"id": 29,
-"question": "What is the purpose of the break statement?",
-"options": [
-"To end the program.",
-"To skip the current iteration of a loop.",
-"To exit the loop immediately.",
-"To return from a function."
-],
-"correctAnswer": 2,
-"explanation": "The break statement is used to exit the current for or while loop prematurely.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Control Flow",
-"code": "for i in range(5):\n    if i == 3:\n        break\n    print(i) # Prints 0, 1, 2",
-"xpReward": 25
-},
-{
-"id": 30,
-"question": "What does the strip() method do to a string?",
-"options": [
-"Capitalizes the string.",
-"Removes leading and trailing whitespace.",
-"Splits the string into a list.",
-"Replaces characters in the string."
-],
-"correctAnswer": 1,
-"explanation": "The strip() method returns a copy of the string with all leading and trailing whitespace characters removed.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Strings",
-"code": "my_string = '  hello world  '\nprint(my_string.strip()) # 'hello world'",
-"xpReward": 25
-},
-{
-"id": 31,
-"question": "How is a static method defined in a Python class?",
-"options": [
-"with the @staticmethod decorator",
-"with the static keyword",
-"without self as the first parameter",
-"with the __static__ method"
-],
-"correctAnswer": 0,
-"explanation": "A static method is a method that belongs to a class rather than an instance of the class. It is defined using the @staticmethod decorator and does not receive self as its first parameter.",
-"language": "Python",
-"difficulty": "advanced",
-"category": "Classes",
-"code": "class MyClass:\n    @staticmethod\n    def my_method():\n        print('Hello')",
-"xpReward": 75
-},
-{
-"id": 32,
-"question": "What is the purpose of the finally block in exception handling?",
-"options": [
-"It executes if no exception is raised.",
-"It executes only if an exception is raised.",
-"It always executes, regardless of whether an exception occurred.",
-"It is used to terminate the program."
-],
-"correctAnswer": 2,
-"explanation": "The finally block always executes after the try and except blocks, making it ideal for clean-up operations like closing files, regardless of whether an exception was raised.",
-"language": "Python",
-"difficulty": "intermediate",
-"category": "Exception Handling",
-"code": "try:\n    file = open('test.txt', 'r')\n    file.read()\nexcept FileNotFoundError:\n    print('File not found')\nfinally:\n    file.close()",
-"xpReward": 50
-},
-{
-"id": 33,
-"question": "What is a virtual environment in Python?",
-"options": [
-"A tool for running Python code online.",
-"A way to install packages globally on a system.",
-"A self-contained directory containing a Python installation and its own set of packages.",
-"A type of virtual machine for running Python."
-],
-"correctAnswer": 2,
-"explanation": "A virtual environment is a tool that keeps the dependencies required by different projects separate by creating isolated Python environments for them.",
-"language": "Python",
-"difficulty": "intermediate",
-"category": "Modules and Packages",
-"code": "python -m venv my_env",
-"xpReward": 50
-},
-{
-"id": 34,
-"question": "What is the output of 'Python' * 3?",
-"options": [
-"PythonPythonPython",
-"Python 3",
-"Error",
-"Python, Python, Python"
-],
-"correctAnswer": 0,
-"explanation": "The * operator, when used with a string and an integer, performs string replication, repeating the string the specified number of times.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Strings",
-"code": "print('Python' * 3)",
-"xpReward": 25
-},
-{
-"id": 35,
-"question": "How do you get the current working directory?",
-"options": [
-"os.get_current_directory()",
-"os.getcwd()",
-"os.current_dir()",
-"os.pwd()"
-],
-"correctAnswer": 1,
-"explanation": "The os module provides a portable way of using operating system-dependent functionality. The os.getcwd() method returns a string representing the current working directory.",
-"language": "Python",
-"difficulty": "intermediate",
-"category": "File I/O",
-"code": "import os\nprint(os.getcwd())",
-"xpReward": 50
-},
-{
-"id": 36,
-"question": "What is the output of ['a', 'b', 'c'][1:]?",
-"options": [
-"['b']",
-"['b', 'c']",
-"['a', 'b']",
-"['c']"
-],
-"correctAnswer": 1,
-"explanation": "Slicing with [1:] returns a new list containing elements from the second element (index 1) to the end.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Lists",
-"code": "my_list = ['a', 'b', 'c']\nprint(my_list[1:])",
-"xpReward": 25
-},
-{
-"id": 37,
-"question": "Which of these is a correct way to comment multiple lines in Python?",
-"options": [
-"// This is a comment",
-"/* This is a comment /",
-"'''This is a comment'''",
-" This is a comment"
-],
-"correctAnswer": 2,
-"explanation": "Python does not have a dedicated multi-line comment syntax like /* */. Multi-line strings enclosed in triple quotes (''' or \"\"\") are often used as a workaround for this purpose.",
-"language": "Python",
-"difficulty": "beginner",
-"category": "Basics",
-"code": "'''\nThis is a multi-line comment.\nIt can span multiple lines.\n'''",
-"xpReward": 25
-},
-{
-"id": 38,
-"question": "What is the output of {'a': 1, 'b': 2}.get('c', 3)?",
-"options": [
-"None",
-"Error",
-"3",
-"{'a': 1, 'b': 2, 'c': 3}"
-],
-"correctAnswer": 2,
-"explanation": "The get() method returns the value for the given key. If the key is not found, it returns the optional default value, which is 3 in this case.",
-"language": "Python",
-"difficulty": "intermediate",
-"category": "Dictionaries",
-"code": "my_dict = {'a': 1, 'b': 2}\nprint(my_dict.get('c', 3))",
-"xpReward": 50
-},
-{
-"id": 39,
-"question": "What is the purpose of the __name__ == '__main__' block?",
-"options": [
-"It is a required part of every Python script.",
-"It prevents a script from being imported.",
-"It ensures the code inside it only runs when the script is executed directly.",
-"It is a block for global variables."
-],
-"correctAnswer": 2,
-"explanation": "When a Python file is run directly, its __name__ variable is set to '__main__'. This block of code is a common idiom to ensure that certain code only runs when the script is not being imported as a module.",
-"language": "Python",
-"difficulty": "advanced",
-"category": "Modules and Packages",
-"code": "if name == 'main':\n    print('This code runs only when the file is executed.')",
-"xpReward": 75
-},
-{
-"id": 40,
-"question": "What will be the output of this Python code?",
-"options": [
-"10",
-"Error",
-"15",
-"5"
-],
-"correctAnswer": 0,
-"explanation": "The nonlocal keyword is used to work with variables inside nested functions that are not local to the inner function, nor global.",
-"language": "Python",
-"difficulty": "advanced",
-"category": "Functions",
-"code": "def outer():\n    x = 5\n    def inner():\n        nonlocal x\n        x += 5\n    inner()\n    print(x)\n\nouter()",
-"xpReward": 75
-},
-// JavaScript Quizzes
-{
-"id": 41,
-"question": "What is the difference between 'let', 'const', and 'var'?",
-"options": [
-"'let' and 'const' are block-scoped, 'var' is function-scoped.",
-"No difference, they are interchangeable.",
-"'var' is block-scoped, 'let' and 'const' are global.",
-"They are all block-scoped."
-],
-"correctAnswer": 0,
-"explanation": "'let'** and 'const' are block-scoped (available only within the block they are defined in), while 'var' is function-scoped or global.",
-"language": "JavaScript",
-"difficulty": "intermediate",
-"category": "Variables",
-"code": "if (true) {\n    var a = 1; // accessible outside\n    let b = 2; // not accessible outside\n}\nconsole.log(a); // 1\nconsole.log(b); // ReferenceError",
-"xpReward": 50
-},
-{
-"id": 42,
-"question": "What is the output of typeof null?",
-"options": [
-"'null'",
-"'object'",
-"'undefined'",
-"Error"
-],
-"correctAnswer": 1,
-"explanation": "This is a historical bug in JavaScript. The type of null is an object, although null itself is a primitive value representing the intentional absence of any object value.",
-"language": "JavaScript",
-"difficulty": "advanced",
-"category": "Data Types",
-"code": "console.log(typeof null);",
-"xpReward": 75
-},
-{
-"id": 43,
-"question": "Which method is used to remove the last element from an array?",
-"options": [
-"slice()",
-"pop()",
-"shift()",
-"removeLast()"
-],
-"correctAnswer": 1,
-"explanation": "The pop() method removes the last element from an array and returns that element. shift() removes the first element.",
-"language": "JavaScript",
-"difficulty": "beginner",
-"category": "Arrays",
-"code": "const fruits = ['apple', 'banana', 'cherry'];\nconst last = fruits.pop();\nconsole.log(fruits); // ['apple', 'banana']",
-"xpReward": 25
-},
-{
-"id": 44,
-"question": "What does hoisting mean in JavaScript?",
-"options": [
-"Moving variable declarations to the top of the scope before code execution.",
-"Lifting a variable to a higher scope.",
-"A type of function call.",
-"Executing code in the browser's console."
-],
-"correctAnswer": 0,
-"explanation": "Hoisting is JavaScript's default behavior of moving declarations (but not initializations) to the top of the current scope before code execution. This applies to var variables and function declarations.",
-"language": "JavaScript",
-"difficulty": "intermediate",
-"category": "Execution Context",
-"code": "console.log(a); // undefined\nvar a = 5;",
-"xpReward": 50
-},
-{
-"id": 45,
-"question": "How do you check if a variable is an array?",
-"options": [
-"typeof myVar === 'array'",
-"myVar.isArray()",
-"Array.isArray(myVar)",
-"myVar instanceof Array"
-],
-"correctAnswer": 2,
-"explanation": "The static Array.isArray() method determines whether the passed value is an Array. It is a more reliable check than instanceof or typeof.",
-"language": "JavaScript",
-"difficulty": "intermediate",
-"category": "Arrays",
-"code": "const arr = [1, 2, 3];\nconsole.log(Array.isArray(arr)); // true",
-"xpReward": 50
-},
-{
-"id": 46,
-"question": "What is the output of 0.1 + 0.2 in JavaScript?",
-"options": [
-"0.3",
-"0.30000000000000004",
-"0.12",
-"Error"
-],
-"correctAnswer": 1,
-"explanation": "Due to the nature of floating-point arithmetic (IEEE 754 standard), not all decimal numbers can be represented precisely in binary, leading to this common quirk.",
-"language": "JavaScript",
-"difficulty": "advanced",
-"category": "Data Types",
-"code": "console.log(0.1 + 0.2);",
-"xpReward": 75
-},
-{
-"id": 47,
-"question": "Which of these is used to create a new object in JavaScript?",
-"options": [
-"new Object()",
-"const obj = {}",
-"const obj = new Object()",
-"All of the above"
-],
-"correctAnswer": 3,
-"explanation": "Both the object literal {} and the new Object() constructor are valid ways to create a new object. The literal notation is preferred for its brevity and readability.",
-"language": "JavaScript",
-"difficulty": "beginner",
-"category": "Objects",
-"code": "const obj1 = {};\nconst obj2 = new Object();",
-"xpReward": 25
-},
-{
-"id": 48,
-"question": "What is the purpose of the bind() method?",
-"options": [
-"To call a function immediately.",
-"To create a new function with a specific this context.",
-"To change the this context of a function.",
-"To bind a variable to a function."
-],
-"correctAnswer": 1,
-"explanation": "The bind() method creates a new function that, when called, has its this keyword set to the provided value. It does not execute the function immediately.",
-"language": "JavaScript",
-"difficulty": "advanced",
-"category": "Functions",
-"code": "const person = { name: 'Alice', greet: function() { console.log(this.name); } };\nconst greetFunc = person.greet.bind({ name: 'Bob' });\ngreetFunc(); // Bob",
-"xpReward": 75
-},
-{
-"id": 49,
-"question": "What is event bubbling?",
-"options": [
-"When an event is handled by the innermost element first, then propagates to parent elements.",
-"When an event is handled by the outermost element first, then propagates inwards.",
-"A way to prevent default browser behavior.",
-"A method for adding event listeners."
-],
-"correctAnswer": 0,
-"explanation": "Event bubbling is the process where an event starts at the target element and 'bubbles' up through its parent elements in the DOM tree until it reaches the root.",
-"language": "JavaScript",
-"difficulty": "intermediate",
-"category": "DOM",
-"code": "// A click on the child element will also trigger the parent's click handler.",
-"xpReward": 50
-},
-{
-"id": 50,
-"question": "What is a Promise in JavaScript?",
-"options": [
-"A guarantee that a function will not fail.",
-"An object representing the eventual completion or failure of an asynchronous operation.",
-"A type of loop for asynchronous code.",
-"A way to handle synchronous code."
-],
-"correctAnswer": 1,
-"explanation": "A Promise is a proxy for a value not necessarily known when the promise is created. It represents an asynchronous operation that has either completed or failed.",
-"language": "JavaScript",
-"difficulty": "intermediate",
-"category": "Async Programming",
-"code": "const myPromise = new Promise((resolve, reject) => {\n    setTimeout(() => resolve('Done!'), 1000);\n});",
-"xpReward": 50
-},
-{
-"id": 51,
-"question": "Which method is used to execute a function for each element in an array?",
-"options": [
-"loop()",
-"iterate()",
-"forEach()",
-"run()"
-],
-"correctAnswer": 2,
-"explanation": "The forEach() method executes a provided function once for each array element. It's often used as a simpler alternative to a for loop.",
-"language": "JavaScript",
-"difficulty": "beginner",
-"category": "Arrays",
-"code": "const arr = ['a', 'b'];\narr.forEach(el => console.log(el)); // prints 'a', then 'b'",
-"xpReward": 25
-},
-{
-"id": 52,
-"question": "What is the purpose of the spread operator (...)?",
-"options": [
-"To divide an array into separate elements.",
-"To combine multiple arrays into one.",
-"To create a new array with an element added.",
-"All of the above"
-],
-"correctAnswer": 3,
-"explanation": "The spread operator expands an iterable into its individual elements. It's used to concatenate arrays, pass arguments to functions, or create new arrays and objects without mutating the original.",
-"language": "JavaScript",
-"difficulty": "intermediate",
-"category": "Operators",
-"code": "const arr1 = [1, 2];\nconst arr2 = [...arr1, 3, 4]; // [1, 2, 3, 4]",
-"xpReward": 50
-},
-{
-"id": 53,
-"question": "What is the difference between call(), apply(), and bind()?",
-"options": [
-"They are identical and interchangeable.",
-"call() and apply() execute immediately, bind() returns a new function. call() takes a list of arguments, apply() takes an array.",
-"They all return a new function.",
-"Only call() can be used with this."
-],
-"correctAnswer": 1,
-"explanation": "All three are used to manipulate the this context. call() and apply() execute the function immediately, while bind() returns a new function. The key difference between call() and apply() is how they pass arguments: call() takes them as a comma-separated list, and apply() takes them as an array.",
-"language": "JavaScript",
-"difficulty": "advanced",
-"category": "Functions",
-"code": "function add(a, b) { return this.x + a + b; }\nconst obj = { x: 1 };\nadd.call(obj, 2, 3); // 6\nadd.apply(obj, [2, 3]); // 6",
-"xpReward": 75
-},
-{
-"id": 54,
-"question": "How do you create a JavaScript class?",
-"options": [
-"class MyClass() {}",
-"function MyClass() {}",
-"class MyClass {}",
-"def MyClass():"
-],
-"correctAnswer": 2,
-"explanation": "Classes in JavaScript are defined using the class keyword. This syntax provides a cleaner and more object-oriented way to create objects compared to traditional prototype-based inheritance.",
-"language": "JavaScript",
-"difficulty": "intermediate",
-"category": "Classes",
-"code": "class Car {\n    constructor(make) {\n        this.make = make;\n    }\n}",
-"xpReward": 50
-},
-{
-"id": 55,
-"question": "Which built-in function is used to parse a JSON string?",
-"options": [
-"JSON.parse()",
-"JSON.stringify()",
-"JSON.convert()",
-"JSON.read()"
-],
-"correctAnswer": 0,
-"explanation": "The JSON.parse() method is used to convert a JSON string into a JavaScript object. JSON.stringify() does the reverse.",
-"language": "JavaScript",
-"difficulty": "beginner",
-"category": "JSON",
-"code": "const jsonString = '{\"name\": \"Alice\"}';\nconst obj = JSON.parse(jsonString);\nconsole.log(obj.name); // Alice",
-"xpReward": 25
-},
-// Java Quizzes
-{
-"id": 56,
-"question": "What is the primary difference between ArrayList and a regular array in Java?",
-"options": [
-"ArrayList can only hold objects, while arrays can hold primitives.",
-"The size of an ArrayList can change dynamically, while an array has a fixed size.",
-"Arrays are faster than ArrayLists.",
-"ArrayList is a primitive data type."
-],
-"correctAnswer": 1,
-"explanation": "The main advantage of ArrayList is its dynamic size, which grows or shrinks as elements are added or removed. A standard array has a fixed size determined at initialization.",
-"language": "Java",
-"difficulty": "intermediate",
-"category": "Collections",
-"code": `ArrayList<String> list = new ArrayList<>();
-list.add("hello"); // Adds an element dynamically`,
-"xpReward": 50
-},
-{
-"id": 57,
-"question": "What will be the output of System.out.println(10 / 3)?",
-"options": [
-"3.3333333333333335",
-"3",
-"3.0",
-"Error"
-],
-"correctAnswer": 1,
-"explanation": "When dividing two integers in Java, the result is an integer. The decimal part is truncated. To get a floating-point result, one of the operands must be a double or float (e.g., 10.0 / 3).",
-"language": "Java",
-"difficulty": "beginner",
-"category": "Operators",
-"code": "System.out.println(10 / 3);",
-"xpReward": 25
-},
-{
-"id": 58,
-"question": "What is the purpose of the static keyword for a method?",
-"options": [
-"The method can be called without creating an instance of the class.",
-"The method cannot be overridden.",
-"The method belongs to a specific object.",
-"The method is only accessible from within the same package."
-],
-"correctAnswer": 0,
-"explanation": "A static method belongs to the class itself, not to any specific instance. You can call it using the class name directly without creating an object.",
-"language": "Java",
-"difficulty": "intermediate",
-"category": "Keywords",
-"code": "public class MathUtils {\n    public static int add(int a, int b) {\n        return a + b;\n    }\n}\nint sum = MathUtils.add(2, 3);",
-"xpReward": 50
-},
-{
-"id": 59,
-"question": "What is the concept of encapsulation in Java?",
-"options": [
-"The ability to create multiple objects of the same class.",
-"Wrapping data and code into a single unit.",
-"Defining a blueprint for an object.",
-"Hiding the implementation details of an object."
-],
-"correctAnswer": 1,
-"explanation": "Encapsulation is the process of binding data (attributes) and the code that manipulates it (methods) into a single unit. It often involves using private access modifiers to hide implementation details and public methods to provide controlled access.",
-"language": "Java",
-"difficulty": "intermediate",
-"category": "OOP",
-"code": "public class Student {\n    private String name;\n    public String getName() {\n        return this.name;\n    }\n}",
-"xpReward": 50
-},
-{
-"id": 60,
-"question": "Which of these is a checked exception?",
-"options": [
-"NullPointerException",
-"ArrayIndexOutOfBoundsException",
-"IOException",
-"RuntimeException"
-],
-"correctAnswer": 2,
-"explanation": "*IOException** is a checked exception. It must be handled at compile time. Unchecked exceptions like NullPointerException and RuntimeException do not need to be explicitly handled.",
-"language": "Java",
-"difficulty": "advanced",
-"category": "Exception Handling",
-"code": "try {\n    // Code that might throw IOException\n} catch (IOException e) {\n    e.printStackTrace();\n}",
-"xpReward": 75
-},
-{
-"id": 61,
-"question": "What is the purpose of the super keyword?",
-"options": [
-"To access a static method of a superclass.",
-"To call a constructor of a superclass.",
-"To refer to the current object.",
-"To define a new superclass."
-],
-"correctAnswer": 1,
-"explanation": "The super keyword is used inside a subclass to refer to and access the members of its parent class. A common use is to call the parent class's constructor from within the subclass's constructor.",
-"language": "Java",
-"difficulty": "intermediate",
-"category": "Inheritance",
-"code": "class Dog extends Animal {\n    Dog(String name) {\n        super(name);\n    }\n}",
-"xpReward": 50
-},
-{
-"id": 62,
-"question": "Which of the following is an interface?",
-"options": [
-"A class that cannot be instantiated.",
-"A blueprint for a class, containing abstract methods and constants.",
-"A concrete class with all methods implemented.",
-"A class used for data storage."
-],
-"correctAnswer": 1,
-"explanation": "An interface is a reference type in Java. It is a blueprint of a class. It contains abstract methods and static final constants. It cannot be instantiated, but a class can implement it to provide concrete implementations of its methods.",
-"language": "Java",
-"difficulty": "advanced",
-"category": "Interfaces",
-"code": "interface Drawable {\n    void draw();\n}",
-"xpReward": 75
-},
-{
-"id": 63,
-"question": "What is the purpose of the public static void main(String[] args) method?",
-"options": [
-"It is a user-defined function.",
-"It is the entry point for every Java application.",
-"It is used for multi-threading.",
-"It's a placeholder for the main logic."
-],
-"correctAnswer": 1,
-"explanation": "The main method is the entry point for any Java program. When you run a Java class, the Java Virtual Machine (JVM) looks for this specific method to begin execution.",
-"language": "Java",
-"difficulty": "beginner",
-"category": "Basics",
-"code": "public class Main {\n    public static void main(String[] args) {\n        // Your code starts here\n    }\n}",
-"xpReward": 25
-},
-{
-"id": 64,
-"question": "Which keyword is used to implement an interface?",
-"options": [
-"extend",
-"implements",
-"import",
-"include"
-],
-"correctAnswer": 1,
-"explanation": "The implements keyword is used to create a class that conforms to the contract of an interface. A class can implement multiple interfaces.",
-"language": "Java",
-"difficulty": "intermediate",
-"category": "Interfaces",
-"code": "class Dog implements Animal {\n    // Method implementations here\n}",
-"xpReward": 50
-},
-{
-"id": 65,
-"question": "What is method overloading?",
-"options": [
-"Having multiple methods with the same name but different parameters.",
-"Changing the implementation of an inherited method.",
-"Defining a method in a subclass that is not in the superclass.",
-"A method that can return multiple values."
-],
-"correctAnswer": 0,
-"explanation": "Method overloading allows a class to have multiple methods with the same name but different numbers or types of parameters. This is a form of compile-time polymorphism.",
-"language": "Java",
-"difficulty": "intermediate",
-"category": "Polymorphism",
-"code": "class Calculator {\n    public int add(int a, int b) { return a + b; }\n    public double add(double a, double b) { return a + b; }\n}",
-"xpReward": 50
-},
-{
-"id": 66,
-"question": "What is the final output of this C++ code?",
-"options": [
-"10",
-"20",
-"15",
-"Compilation error"
-],
-"correctAnswer": 2,
-"explanation": "The variable x is passed by value to func, so a copy is made. The function func modifies its local copy, not the original variable. The variable y is passed by reference, so the add_ten function modifies the original y and y becomes 20.",
-"language": "C++",
-"difficulty": "intermediate",
-"category": "Functions",
-"code": "void func(int a) {\n    a = a + 10;\n}\n\nvoid add_ten(int &a) {\n    a = a + 10;\n}\n\nint main() {\n    int x = 5;\n    int y = 10;\n    func(x);\n    add_ten(y);\n    cout << x + y;\n    return 0;\n}",
-"xpReward": 50
-},
-{
-"id": 67,
-"question": "Which of these is the correct way to declare a constant in C++?",
-"options": [
-"const int x = 10;",
-"#define x 10;",
-"int const x = 10;",
-"Both a and c"
-],
-"correctAnswer": 3,
-"explanation": "Both const int x = 10; and int const x = 10; are valid ways to declare a constant integer in C++. The const keyword can appear before or after the type.",
-"language": "C++",
-"difficulty": "beginner",
-"category": "Keywords",
-"code": "const int x = 5;\nint const y = 10;",
-"xpReward": 25
-},
-{
-"id": 68,
-"question": "What is the purpose of a destructor in C++?",
-"options": [
-"To create an object.",
-"To free up memory allocated by a class object before it is destroyed.",
-"To initialize class members.",
-"To define the end of a class."
-],
-"correctAnswer": 1,
-"explanation": "A destructor is a special member function of a class that is automatically called when a class object goes out of scope or is explicitly deleted. Its primary purpose is to free up resources, like memory or file handles, that the object acquired during its lifetime.",
-"language": "C++",
-"difficulty": "intermediate",
-"category": "Memory Management",
-"code": "class MyClass {\npublic:\n    ~MyClass() {\n        // Cleanup code here\n    }\n};",
-"xpReward": 50
-},
-{
-"id": 69,
-"question": "Which header file is required to use std::cout?",
-"options": [
-"iostream",
-"stdio.h",
-"string",
-"vector"
-],
-"correctAnswer": 0,
-"explanation": "The <iostream> header file provides the standard input/output stream objects, including std::cin for input and std::cout for output.",
-"language": "C++",
-"difficulty": "beginner",
-"category": "Basics",
-"code": `#include <iostream>
-using namespace std;
-int main() {
-    cout << "Hello";
-}`,
+    id: 1,
+    question: "What keyword is used to define a function in Python?",
+    answer: "The 'def' keyword is used to define functions in Python.",
+    language: "Python",
+    difficulty: "beginner",
+    category: "Functions",
+    code: "def my_function():\n    print('Hello, World!')",
+    xpReward: 25
+  },
+  {
+    id: 2,
+    question: "What are Python lists?",
+    answer: "Lists are ordered, mutable collections that can store multiple items of different data types.",
+    language: "Python",
+    difficulty: "beginner",
+    category: "Data Types",
+    code: "my_list = [1, 'hello', 3.14, True]",
+    xpReward: 25
+  },
+  {
+    id: 3,
+    question: "How do you create a dictionary in Python?",
+    answer: "Dictionaries are created using curly braces {} with key-value pairs separated by colons.",
+    language: "Python",
+    difficulty: "beginner",
+    category: "Data Types",
+    code: "my_dict = {'name': 'John', 'age': 30}",
+    xpReward: 25
+  },
+  {
+    id: 4,
+    question: "What is the difference between '==' and 'is' in Python?",
+    answer: "'==' compares values while 'is' compares object identity (memory location).",
+    language: "Python",
+    difficulty: "intermediate",
+    category: "Operators",
+    code: "a = [1, 2, 3]\nb = [1, 2, 3]\nprint(a == b)  # True\nprint(a is b)  # False",
+    xpReward: 35
+  },
+  {
+    id: 5,
+    question: "What are Python decorators?",
+    answer: "Decorators are functions that modify or extend the behavior of other functions without changing their code.",
+    language: "Python",
+    difficulty: "advanced",
+    category: "Advanced Concepts",
+    code: "@my_decorator\ndef my_function():\n    pass",
+    xpReward: 50
+  },
+  {
+    id: 6,
+    question: "How do you handle exceptions in Python?",
+    answer: "Use try-except blocks to catch and handle exceptions gracefully.",
+    language: "Python",
+    difficulty: "intermediate",
+    category: "Error Handling",
+    code: "try:\n    result = 10 / 0\nexcept ZeroDivisionError:\n    print('Cannot divide by zero')",
+    xpReward: 35
+  },
+  {
+    id: 7,
+    question: "What is a lambda function in Python?",
+    answer: "Lambda functions are anonymous functions defined using the 'lambda' keyword for simple operations.",
+    language: "Python",
+    difficulty: "intermediate",
+    category: "Functions",
+    code: "square = lambda x: x ** 2\nprint(square(5))  # 25",
+    xpReward: 35
+  },
+  {
+    id: 8,
+    question: "What are Python generators?",
+    answer: "Generators are functions that use 'yield' to return values one at a time, saving memory.",
+    language: "Python",
+    difficulty: "advanced",
+    category: "Advanced Concepts",
+    code: "def count_up_to(n):\n    i = 1\n    while i <= n:\n        yield i\n        i += 1",
+    xpReward: 50
+  },
+  {
+    id: 9,
+    question: "How do you create a class in Python?",
+    answer: "Use the 'class' keyword followed by the class name and a colon.",
+    language: "Python",
+    difficulty: "intermediate",
+    category: "Object-Oriented Programming",
+    code: "class Person:\n    def __init__(self, name):\n        self.name = name",
+    xpReward: 35
+  },
+  {
+    id: 10,
+    question: "What is list comprehension in Python?",
+    answer: "List comprehension is a concise way to create lists using a single line of code.",
+    language: "Python",
+    difficulty: "intermediate",
+    category: "Data Structures",
+    code: "squares = [x**2 for x in range(10)]",
+    xpReward: 35
+  },
+  {
+    id: 11,
+    question: "What are Python modules?",
+    answer: "Modules are files containing Python code that can be imported and reused in other programs.",
+    language: "Python",
+    difficulty: "beginner",
+    category: "Modules",
+    code: "import math\nprint(math.pi)",
+    xpReward: 25
+  },
+  {
+    id: 12,
+    question: "What is the difference between append() and extend() in Python lists?",
+    answer: "append() adds a single element, while extend() adds multiple elements from an iterable.",
+    language: "Python",
+    difficulty: "beginner",
+    category: "Data Structures",
+    code: "list1 = [1, 2]\nlist1.append([3, 4])  # [1, 2, [3, 4]]\nlist2 = [1, 2]\nlist2.extend([3, 4])  # [1, 2, 3, 4]",
+    xpReward: 25
+  },
+  {
+    id: 13,
+    question: "What are Python sets?",
+    answer: "Sets are unordered collections of unique elements, useful for removing duplicates.",
+    language: "Python",
+    difficulty: "beginner",
+    category: "Data Types",
+    code: "my_set = {1, 2, 3, 3, 4}\nprint(my_set)  # {1, 2, 3, 4}",
+    xpReward: 25
+  },
+  {
+    id: 14,
+    question: "What is the Global Interpreter Lock (GIL) in Python?",
+    answer: "GIL is a mutex that protects Python objects, allowing only one thread to execute Python code at a time.",
+    language: "Python",
+    difficulty: "advanced",
+    category: "Advanced Concepts",
+    xpReward: 50
+  },
+  {
+    id: 15,
+    question: "How do you format strings in Python?",
+    answer: "Use f-strings (f''), .format() method, or % formatting for string interpolation.",
+    language: "Python",
+    difficulty: "beginner",
+    category: "Strings",
+    code: "name = 'Alice'\nage = 30\nprint(f'Hello, {name}! You are {age} years old.')",
+    xpReward: 25
+  },
+  {
+    id: 16,
+    question: "What are Python metaclasses?",
+    answer: "Metaclasses are classes whose instances are classes themselves, controlling class creation.",
+    language: "Python",
+    difficulty: "advanced",
+    category: "Advanced Concepts",
+    code: "class Meta(type):\n    pass\n\nclass MyClass(metaclass=Meta):\n    pass",
+    xpReward: 50
+  },
+  {
+    id: 17,
+    question: "What is the difference between shallow and deep copy in Python?",
+    answer: "Shallow copy creates a new object but references to nested objects remain the same. Deep copy creates entirely new objects.",
+    language: "Python",
+    difficulty: "intermediate",
+    category: "Memory Management",
+    code: "import copy\noriginal = [[1, 2], [3, 4]]\nshallow = copy.copy(original)\ndeep = copy.deepcopy(original)",
+    xpReward: 35
+  },
+  {
+    id: 18,
+    question: "What are Python context managers?",
+    answer: "Context managers handle resource management using 'with' statements, ensuring proper cleanup.",
+    language: "Python",
+    difficulty: "intermediate",
+    category: "Advanced Concepts",
+    code: "with open('file.txt', 'r') as f:\n    content = f.read()\n# File automatically closed",
+    xpReward: 35
+  },
+  {
+    id: 19,
+    question: "What is multiple inheritance in Python?",
+    answer: "Multiple inheritance allows a class to inherit from multiple parent classes.",
+    language: "Python",
+    difficulty: "intermediate",
+    category: "Object-Oriented Programming",
+    code: "class A:\n    pass\n\nclass B:\n    pass\n\nclass C(A, B):\n    pass",
+    xpReward: 35
+  },
+  {
+    id: 20,
+    question: "What are Python iterators?",
+    answer: "Iterators are objects that implement __iter__() and __next__() methods to traverse collections.",
+    language: "Python",
+    difficulty: "intermediate",
+    category: "Advanced Concepts",
+    code: "class Counter:\n    def __init__(self, max):\n        self.max = max\n        self.num = 0\n    \n    def __iter__(self):\n        return self\n    \n    def __next__(self):\n        if self.num < self.max:\n            self.num += 1\n            return self.num\n        raise StopIteration",
+    xpReward: 35
+  },
+  {
+    id: 21,
+    question: "What is the purpose of __init__.py files?",
+    answer: "__init__.py makes a directory a Python package and can contain initialization code.",
+    language: "Python",
+    difficulty: "beginner",
+    category: "Modules",
+    xpReward: 25
+  },
+  {
+    id: 22,
+    question: "What are Python property decorators?",
+    answer: "Property decorators allow methods to be accessed like attributes while maintaining encapsulation.",
+    language: "Python",
+    difficulty: "intermediate",
+    category: "Object-Oriented Programming",
+    code: "class Circle:\n    def __init__(self, radius):\n        self._radius = radius\n    \n    @property\n    def radius(self):\n        return self._radius",
+    xpReward: 35
+  },
+  {
+    id: 23,
+    question: "What is the difference between *args and **kwargs?",
+    answer: "*args captures variable positional arguments as a tuple, **kwargs captures keyword arguments as a dictionary.",
+    language: "Python",
+    difficulty: "intermediate",
+    category: "Functions",
+    code: "def func(*args, **kwargs):\n    print(args)    # (1, 2, 3)\n    print(kwargs)  # {'a': 4, 'b': 5}\n\nfunc(1, 2, 3, a=4, b=5)",
+    xpReward: 35
+  },
+  {
+    id: 24,
+    question: "What are Python descriptors?",
+    answer: "Descriptors are objects that define how attribute access is handled using __get__, __set__, and __delete__ methods.",
+    language: "Python",
+    difficulty: "advanced",
+    category: "Advanced Concepts",
+    code: "class Descriptor:\n    def __get__(self, obj, objtype):\n        return 'descriptor value'\n    \n    def __set__(self, obj, value):\n        pass",
+    xpReward: 50
+  },
+  {
+    id: 25,
+    question: "What is monkey patching in Python?",
+    answer: "Monkey patching is dynamically modifying classes or modules at runtime to change their behavior.",
+    language: "Python",
+    difficulty: "advanced",
+    category: "Advanced Concepts",
+    code: "import datetime\n# Monkey patch the datetime module\ndatetime.datetime.is_weekend = lambda self: self.weekday() >= 5",
+    xpReward: 50
+  },
+  {
+    id: 26,
+    question: "What are Python async/await keywords?",
+    answer: "async/await enable asynchronous programming, allowing non-blocking code execution.",
+    language: "Python",
+    difficulty: "advanced",
+    category: "Concurrency",
+    code: "import asyncio\n\nasync def main():\n    await asyncio.sleep(1)\n    print('Done')\n\nasyncio.run(main())",
+    xpReward: 50
+  },
+  {
+    id: 27,
+    question: "What is the difference between is and == in Python?",
+    answer: "'is' checks identity (same object in memory), '==' checks equality (same value).",
+    language: "Python",
+    difficulty: "beginner",
+    category: "Operators",
+    code: "a = [1, 2, 3]\nb = [1, 2, 3]\nprint(a == b)  # True\nprint(a is b)  # False",
+    xpReward: 25
+  },
+  {
+    id: 28,
+    question: "What are Python slots?",
+    answer: "__slots__ restricts the attributes an instance can have, saving memory and improving performance.",
+    language: "Python",
+    difficulty: "advanced",
+    category: "Memory Management",
+    code: "class Person:\n    __slots__ = ['name', 'age']\n    \n    def __init__(self, name, age):\n        self.name = name\n        self.age = age",
+    xpReward: 50
+  },
+  {
+    id: 29,
+    question: "What is the difference between staticmethod and classmethod?",
+    answer: "@staticmethod doesn't receive any automatic arguments, @classmethod receives the class as first argument.",
+    language: "Python",
+    difficulty: "intermediate",
+    category: "Object-Oriented Programming",
+    code: "class MyClass:\n    @staticmethod\n    def static_method():\n        pass\n    \n    @classmethod\n    def class_method(cls):\n        pass",
+    xpReward: 35
+  },
+  {
+    id: 30,
+    question: "What are Python closures?",
+    answer: "Closures are nested functions that capture and remember variables from their enclosing scope.",
+    language: "Python",
+    difficulty: "intermediate",
+    category: "Functions",
+    code: "def outer(x):\n    def inner(y):\n        return x + y\n    return inner\n\nadd_five = outer(5)\nprint(add_five(3))  # 8",
+    xpReward: 35
+  },
 
-"xpReward": 25
-},
-{
-"id": 70,
-"question": "What is a virtual function in C++?",
-"options": [
-"A function that cannot be overloaded.",
-"A function that must be defined in every subclass.",
-"A function declared with the virtual keyword, used to achieve runtime polymorphism.",
-"A function that can be called only on a pointer."
-],
-"correctAnswer": 2,
-"explanation": "A virtual function is a member function that is declared in a base class and is overridden by a derived class. It allows for dynamic dispatch (or runtime polymorphism), meaning the correct function version is chosen at runtime based on the object type, not the pointer type.",
-"language": "C++",
-"difficulty": "advanced",
-"category": "Polymorphism",
-"code": `class Animal {
-public:
-    virtual void sound() {
-        cout << "Animal sound";
-    }
-};`,
+  // JavaScript Flashcards (30 cards)
+  {
+    id: 31,
+    question: "What is the difference between var, let, and const in JavaScript?",
+    answer: "var is function-scoped and can be redeclared, let is block-scoped and can be reassigned, const is block-scoped and cannot be reassigned.",
+    language: "JavaScript",
+    difficulty: "beginner",
+    category: "Variables",
+    code: "var x = 1;    // Function scoped\nlet y = 2;    // Block scoped\nconst z = 3;  // Block scoped, immutable",
+    xpReward: 25
+  },
+  {
+    id: 32,
+    question: "What are JavaScript arrow functions?",
+    answer: "Arrow functions are a concise way to write functions with implicit return and lexical 'this' binding.",
+    language: "JavaScript",
+    difficulty: "beginner",
+    category: "Functions",
+    code: "const add = (a, b) => a + b;\nconst greet = name => `Hello, ${name}!`;",
+    xpReward: 25
+  },
+  {
+    id: 33,
+    question: "What is destructuring in JavaScript?",
+    answer: "Destructuring allows extracting values from arrays or properties from objects into distinct variables.",
+    language: "JavaScript",
+    difficulty: "intermediate",
+    category: "ES6 Features",
+    code: "const [a, b] = [1, 2];\nconst {name, age} = {name: 'John', age: 30};",
+    xpReward: 35
+  },
+  {
+    id: 34,
+    question: "What are JavaScript promises?",
+    answer: "Promises represent the eventual completion or failure of an asynchronous operation.",
+    language: "JavaScript",
+    difficulty: "intermediate",
+    category: "Asynchronous Programming",
+    code: "const promise = new Promise((resolve, reject) => {\n  setTimeout(() => resolve('Success!'), 1000);\n});",
+    xpReward: 35
+  },
+  {
+    id: 35,
+    question: "What is async/await in JavaScript?",
+    answer: "async/await provides a cleaner syntax for working with promises, making asynchronous code look synchronous.",
+    language: "JavaScript",
+    difficulty: "intermediate",
+    category: "Asynchronous Programming",
+    code: "async function fetchData() {\n  try {\n    const data = await fetch('/api/data');\n    return await data.json();\n  } catch (error) {\n    console.error(error);\n  }\n}",
+    xpReward: 35
+  },
+  {
+    id: 36,
+    question: "What is the difference between == and === in JavaScript?",
+    answer: "== performs type coercion before comparison, === compares both value and type without coercion.",
+    language: "JavaScript",
+    difficulty: "beginner",
+    category: "Operators",
+    code: "console.log(5 == '5');   // true (type coercion)\nconsole.log(5 === '5');  // false (strict equality)",
+    xpReward: 25
+  },
+  {
+    id: 37,
+    question: "What are JavaScript closures?",
+    answer: "Closures give functions access to variables from their outer (enclosing) scope even after the outer function returns.",
+    language: "JavaScript",
+    difficulty: "intermediate",
+    category: "Functions",
+    code: "function outer(x) {\n  return function inner(y) {\n    return x + y;\n  };\n}\nconst addFive = outer(5);\nconsole.log(addFive(3)); // 8",
+    xpReward: 35
+  },
+  {
+    id: 38,
+    question: "What is the 'this' keyword in JavaScript?",
+    answer: "'this' refers to the object that is executing the current function, its value depends on how the function was called.",
+    language: "JavaScript",
+    difficulty: "intermediate",
+    category: "Object-Oriented Programming",
+    code: "const obj = {\n  name: 'John',\n  greet() {\n    console.log(`Hello, ${this.name}`);\n  }\n};\nobj.greet(); // Hello, John",
+    xpReward: 35
+  },
+  {
+    id: 39,
+    question: "What are JavaScript prototypes?",
+    answer: "Prototypes allow objects to inherit properties and methods from other objects, forming a prototype chain.",
+    language: "JavaScript",
+    difficulty: "advanced",
+    category: "Object-Oriented Programming",
+    code: "function Person(name) {\n  this.name = name;\n}\nPerson.prototype.greet = function() {\n  return `Hello, ${this.name}`;\n};",
+    xpReward: 50
+  },
+  {
+    id: 40,
+    question: "What is hoisting in JavaScript?",
+    answer: "Hoisting moves variable and function declarations to the top of their containing scope during compilation.",
+    language: "JavaScript",
+    difficulty: "intermediate",
+    category: "JavaScript Engine",
+    code: "console.log(x); // undefined (not error)\nvar x = 5;\n\n// Equivalent to:\n// var x;\n// console.log(x);\n// x = 5;",
+    xpReward: 35
+  },
+  {
+    id: 41,
+    question: "What are JavaScript modules?",
+    answer: "Modules allow you to export and import functionality between files, promoting code reusability and organization.",
+    language: "JavaScript",
+    difficulty: "intermediate",
+    category: "Modules",
+    code: "// math.js\nexport const add = (a, b) => a + b;\n\n// main.js\nimport { add } from './math.js';\nconsole.log(add(2, 3));",
+    xpReward: 35
+  },
+  {
+    id: 42,
+    question: "What is event delegation in JavaScript?",
+    answer: "Event delegation uses event bubbling to handle events on child elements by attaching a single event listener to a parent element.",
+    language: "JavaScript",
+    difficulty: "intermediate",
+    category: "DOM Manipulation",
+    code: "document.getElementById('parent').addEventListener('click', function(e) {\n  if (e.target.classList.contains('button')) {\n    console.log('Button clicked!');\n  }\n});",
+    xpReward: 35
+  },
+  {
+    id: 43,
+    question: "What are JavaScript generators?",
+    answer: "Generators are functions that can be paused and resumed, yielding values one at a time using yield keyword.",
+    language: "JavaScript",
+    difficulty: "advanced",
+    category: "Advanced Features",
+    code: "function* numberGenerator() {\n  let i = 0;\n  while (true) {\n    yield i++;\n  }\n}\nconst gen = numberGenerator();\nconsole.log(gen.next().value); // 0",
+    xpReward: 50
+  },
+  {
+    id: 44,
+    question: "What is the spread operator in JavaScript?",
+    answer: "The spread operator (...) expands iterables (arrays, strings) into individual elements or object properties.",
+    language: "JavaScript",
+    difficulty: "beginner",
+    category: "ES6 Features",
+    code: "const arr1 = [1, 2, 3];\nconst arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]\nconst obj = {a: 1, ...{b: 2, c: 3}};",
+    xpReward: 25
+  },
+  {
+    id: 45,
+    question: "What is the rest parameter in JavaScript?",
+    answer: "Rest parameters (...) collect multiple arguments into an array, allowing functions to accept variable numbers of arguments.",
+    language: "JavaScript",
+    difficulty: "beginner",
+    category: "Functions",
+    code: "function sum(...numbers) {\n  return numbers.reduce((a, b) => a + b, 0);\n}\nconsole.log(sum(1, 2, 3, 4)); // 10",
+    xpReward: 25
+  },
+  {
+    id: 46,
+    question: "What are JavaScript template literals?",
+    answer: "Template literals use backticks (`) to create strings with embedded expressions and multi-line support.",
+    language: "JavaScript",
+    difficulty: "beginner",
+    category: "Strings",
+    code: "const name = 'Alice';\nconst age = 30;\nconst message = `Hello, ${name}!\nYou are ${age} years old.`;",
+    xpReward: 25
+  },
+  {
+    id: 47,
+    question: "What is the difference between null and undefined in JavaScript?",
+    answer: "undefined means a variable has been declared but not assigned a value, null is an intentional absence of value.",
+    language: "JavaScript",
+    difficulty: "beginner",
+    category: "Data Types",
+    code: "let x; // undefined\nlet y = null; // intentionally empty\nconsole.log(typeof x); // 'undefined'\nconsole.log(typeof y); // 'object'",
+    xpReward: 25
+  },
+  {
+    id: 48,
+    question: "What are JavaScript symbols?",
+    answer: "Symbols are unique primitive values used as object property keys to avoid naming collisions.",
+    language: "JavaScript",
+    difficulty: "advanced",
+    category: "Data Types",
+    code: "const sym1 = Symbol('description');\nconst sym2 = Symbol('description');\nconsole.log(sym1 === sym2); // false\n\nconst obj = {\n  [sym1]: 'value'\n};",
+    xpReward: 50
+  },
+  {
+    id: 49,
+    question: "What is currying in JavaScript?",
+    answer: "Currying transforms a function with multiple arguments into a sequence of functions, each taking a single argument.",
+    language: "JavaScript",
+    difficulty: "advanced",
+    category: "Functional Programming",
+    code: "const multiply = (a) => (b) => (c) => a * b * c;\nconst multiplyBy2 = multiply(2);\nconst multiplyBy2And3 = multiplyBy2(3);\nconsole.log(multiplyBy2And3(4)); // 24",
+    xpReward: 50
+  },
+  {
+    id: 50,
+    question: "What is the event loop in JavaScript?",
+    answer: "The event loop handles asynchronous operations by managing the call stack, callback queue, and Web APIs.",
+    language: "JavaScript",
+    difficulty: "advanced",
+    category: "JavaScript Engine",
+    code: "console.log('1');\nsetTimeout(() => console.log('2'), 0);\nPromise.resolve().then(() => console.log('3'));\nconsole.log('4');\n// Output: 1, 4, 3, 2",
+    xpReward: 50
+  },
+  {
+    id: 51,
+    question: "What are JavaScript Maps and Sets?",
+    answer: "Map stores key-value pairs with any type of keys, Set stores unique values of any type.",
+    language: "JavaScript",
+    difficulty: "intermediate",
+    category: "Data Structures",
+    code: "const map = new Map();\nmap.set('key', 'value');\n\nconst set = new Set([1, 2, 2, 3]);\nconsole.log(set); // Set {1, 2, 3}",
+    xpReward: 35
+  },
+  {
+    id: 52,
+    question: "What is debouncing in JavaScript?",
+    answer: "Debouncing delays function execution until after a specified time has passed since the last invocation.",
+    language: "JavaScript",
+    difficulty: "intermediate",
+    category: "Performance",
+    code: "function debounce(func, delay) {\n  let timeoutId;\n  return function(...args) {\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(() => func.apply(this, args), delay);\n  };\n}",
+    xpReward: 35
+  },
+  {
+    id: 53,
+    question: "What are JavaScript proxies?",
+    answer: "Proxies allow you to intercept and customize operations performed on objects (property lookup, assignment, etc.).",
+    language: "JavaScript",
+    difficulty: "advanced",
+    category: "Advanced Features",
+    code: "const handler = {\n  get: function(target, prop) {\n    return prop in target ? target[prop] : 'Property not found';\n  }\n};\nconst proxy = new Proxy({name: 'John'}, handler);",
+    xpReward: 50
+  },
+  {
+    id: 54,
+    question: "What is memoization in JavaScript?",
+    answer: "Memoization caches function results to avoid expensive recalculations for the same inputs.",
+    language: "JavaScript",
+    difficulty: "intermediate",
+    category: "Performance",
+    code: "function memoize(fn) {\n  const cache = {};\n  return function(...args) {\n    const key = JSON.stringify(args);\n    if (key in cache) return cache[key];\n    cache[key] = fn.apply(this, args);\n    return cache[key];\n  };\n}",
+    xpReward: 35
+  },
+  {
+    id: 55,
+    question: "What are WeakMap and WeakSet in JavaScript?",
+    answer: "WeakMap and WeakSet hold weak references to objects, allowing garbage collection when no other references exist.",
+    language: "JavaScript",
+    difficulty: "advanced",
+    category: "Memory Management",
+    code: "const weakMap = new WeakMap();\nconst obj = {};\nweakMap.set(obj, 'some value');\n// obj can be garbage collected if no other references exist",
+    xpReward: 50
+  },
+  {
+    id: 56,
+    question: "What is the Observer pattern in JavaScript?",
+    answer: "Observer pattern defines a one-to-many dependency between objects, notifying dependents of state changes.",
+    language: "JavaScript",
+    difficulty: "advanced",
+    category: "Design Patterns",
+    code: "class Subject {\n  constructor() {\n    this.observers = [];\n  }\n  subscribe(observer) {\n    this.observers.push(observer);\n  }\n  notify(data) {\n    this.observers.forEach(observer => observer(data));\n  }\n}",
+    xpReward: 50
+  },
+  {
+    id: 57,
+    question: "What is throttling in JavaScript?",
+    answer: "Throttling limits function execution to once per specified time interval, regardless of how often it's called.",
+    language: "JavaScript",
+    difficulty: "intermediate",
+    category: "Performance",
+    code: "function throttle(func, delay) {\n  let lastCall = 0;\n  return function(...args) {\n    const now = Date.now();\n    if (now - lastCall >= delay) {\n      lastCall = now;\n      func.apply(this, args);\n    }\n  };\n}",
+    xpReward: 35
+  },
+  {
+    id: 58,
+    question: "What are JavaScript iterators?",
+    answer: "Iterators are objects that implement the iterator protocol with a next() method returning {value, done}.",
+    language: "JavaScript",
+    difficulty: "advanced",
+    category: "Advanced Features",
+    code: "const iterator = {\n  current: 0,\n  last: 3,\n  next() {\n    if (this.current <= this.last) {\n      return { value: this.current++, done: false };\n    }\n    return { done: true };\n  }\n};",
+    xpReward: 50
+  },
+  {
+    id: 59,
+    question: "What is the Fetch API in JavaScript?",
+    answer: "Fetch API provides a modern way to make HTTP requests, returning promises for handling responses.",
+    language: "JavaScript",
+    difficulty: "intermediate",
+    category: "Web APIs",
+    code: "fetch('/api/data')\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error('Error:', error));",
+    xpReward: 35
+  },
+  {
+    id: 60,
+    question: "What are JavaScript service workers?",
+    answer: "Service workers are scripts that run in the background, enabling features like offline functionality and push notifications.",
+    language: "JavaScript",
+    difficulty: "advanced",
+    category: "Web APIs",
+    code: "// Register service worker\nif ('serviceWorker' in navigator) {\n  navigator.serviceWorker.register('/sw.js')\n    .then(registration => console.log('SW registered'))\n    .catch(error => console.log('SW registration failed'));\n}",
+    xpReward: 50
+  },
 
-"xpReward": 75
-},
-{
-"id": 71,
-"question": "What is the difference between a class and a struct in C++?",
-"options": [
-"A struct can only hold data, a class can hold methods.",
-"A struct is for simple data, a class is for complex data.",
-"Members of a class are private by default, while members of a struct are public by default.",
-"No difference, they are identical."
-],
-"correctAnswer": 2,
-"explanation": "The main difference is the default member access specifier. For a class, it is private by default, and for a struct, it is public by default. Otherwise, they are functionally very similar.",
-"language": "C++",
-"difficulty": "intermediate",
-"category": "OOP",
-"code": "class MyClass { int a; }; // a is private\nstruct MyStruct { int b; }; // b is public",
-"xpReward": 50
-},
-{
-"id": 72,
-"question": "How do you allocate memory for an array dynamically in C++?",
-"options": [
-"int arr = new int[10];",
-"int* arr = new int[10];",
-"int arr[] = new int[10];",
-"int arr = (int*)malloc(10);"
-],
-"correctAnswer": 1,
-"explanation": "The new operator is used to dynamically allocate memory for an array on the heap. It returns a pointer to the first element of the allocated memory.",
-"language": "C++",
-"difficulty": "intermediate",
-"category": "Memory Management",
-"code": "int* myArray = new int[5];\ndelete[] myArray; // Don't forget to free the memory",
-"xpReward": 50
-},
-{
-"id": 73,
-"question": "What is a pure virtual function?",
-"options": [
-"A function that takes no arguments.",
-"A virtual function that has no implementation.",
-"A function that can only be called from a base class.",
-"A function that returns a void value."
-],
-"correctAnswer": 1,
-"explanation": "A pure virtual function is a virtual function in a base class that has no implementation. It is declared with = 0. A class containing at least one pure virtual function is considered an abstract class and cannot be instantiated.",
-"language": "C++",
-"difficulty": "advanced",
-"category": "Polymorphism",
-"code": "class Shape {\npublic:\n    virtual void draw() = 0;\n};",
-"xpReward": 75
-},
-{
-"id": 74,
-"question": "What does the std namespace contain?",
-"options": [
-"Standard library functions and objects.",
-"Only input/output functions.",
-"Reserved C++ keywords.",
-"Functions for parallel programming."
-],
-"correctAnswer": 0,
-"explanation": "The std (standard) namespace contains the standard C++ library components, including I/O streams (cout, cin), containers (vector, list), algorithms, and more.",
-"language": "C++",
-"difficulty": "beginner",
-"category": "Namespaces",
-"code": `using namespace std;
-cout << "Hello";`,
-"xpReward": 25
-},
-{
-"id": 75,
-"question": "What is the purpose of the friend keyword in C++?",
-"options": [
-"To allow a function to be called from a different file.",
-"To grant a function or class access to private and protected members of another class.",
-"To create a new instance of a class.",
-"To declare a function as non-member."
-],
-"correctAnswer": 1,
-"explanation": "The friend keyword allows a function or an entire class to access the private and protected members of the class in which it is declared as a friend.",
-"language": "C++",
-"difficulty": "advanced",
-"category": "Classes",
-"code": "class MyClass {\nprivate:\n    int value;\n    friend void my_friend_func(MyClass& obj);\n};",
-"xpReward": 75
-}
+  // Java Flashcards (30 cards)
+  {
+    id: 61,
+    question: "What is the main method signature in Java?",
+    answer: "public static void main(String[] args) is the entry point for Java applications.",
+    language: "Java",
+    difficulty: "beginner",
+    category: "Basic Syntax",
+    code: "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}",
+    xpReward: 25
+  },
+  {
+    id: 62,
+    question: "What are the primitive data types in Java?",
+    answer: "Java has 8 primitive types: byte, short, int, long, float, double, boolean, and char.",
+    language: "Java",
+    difficulty: "beginner",
+    category: "Data Types",
+    code: "int number = 42;\nboolean flag = true;\nchar letter = 'A';\ndouble price = 19.99;",
+    xpReward: 25
+  },
+  {
+    id: 63,
+    question: "What is the difference between == and equals() in Java?",
+    answer: "== compares references (memory addresses), equals() compares object content/values.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Object Comparison",
+    code: "String s1 = new String(\"hello\");\nString s2 = new String(\"hello\");\nSystem.out.println(s1 == s2);      // false\nSystem.out.println(s1.equals(s2)); // true",
+    xpReward: 35
+  },
+  {
+    id: 64,
+    question: "What is inheritance in Java?",
+    answer: "Inheritance allows a class to inherit properties and methods from another class using the 'extends' keyword.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Object-Oriented Programming",
+    code: "class Animal {\n    void eat() { System.out.println(\"Eating...\"); }\n}\n\nclass Dog extends Animal {\n    void bark() { System.out.println(\"Barking...\"); }\n}",
+    xpReward: 35
+  },
+  {
+    id: 65,
+    question: "What are interfaces in Java?",
+    answer: "Interfaces define contracts that classes must implement, supporting multiple inheritance of type.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Object-Oriented Programming",
+    code: "interface Drawable {\n    void draw();\n}\n\nclass Circle implements Drawable {\n    public void draw() {\n        System.out.println(\"Drawing circle\");\n    }\n}",
+    xpReward: 35
+  },
+  {
+    id: 66,
+    question: "What is method overloading in Java?",
+    answer: "Method overloading allows multiple methods with the same name but different parameter lists in the same class.",
+    language: "Java",
+    difficulty: "beginner",
+    category: "Methods",
+    code: "class Calculator {\n    int add(int a, int b) {\n        return a + b;\n    }\n    \n    double add(double a, double b) {\n        return a + b;\n    }\n}",
+    xpReward: 25
+  },
+  {
+    id: 67,
+    question: "What is method overriding in Java?",
+    answer: "Method overriding allows a subclass to provide a specific implementation of a method defined in its superclass.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Object-Oriented Programming",
+    code: "class Animal {\n    void makeSound() {\n        System.out.println(\"Animal sound\");\n    }\n}\n\nclass Dog extends Animal {\n    @Override\n    void makeSound() {\n        System.out.println(\"Woof!\");\n    }\n}",
+    xpReward: 35
+  },
+  {
+    id: 68,
+    question: "What are access modifiers in Java?",
+    answer: "Access modifiers control visibility: public (everywhere), private (same class), protected (package + subclasses), default (package).",
+    language: "Java",
+    difficulty: "beginner",
+    category: "Access Control",
+    code: "public class Example {\n    private int privateVar;\n    protected int protectedVar;\n    public int publicVar;\n    int defaultVar; // package-private\n}",
+    xpReward: 25
+  },
+  {
+    id: 69,
+    question: "What is the finally block in Java?",
+    answer: "The finally block executes regardless of whether an exception occurs, typically used for cleanup operations.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Exception Handling",
+    code: "try {\n    // risky code\n} catch (Exception e) {\n    // handle exception\n} finally {\n    // always executes\n    System.out.println(\"Cleanup\");\n}",
+    xpReward: 35
+  },
+  {
+    id: 70,
+    question: "What are Java generics?",
+    answer: "Generics provide type safety by allowing classes, interfaces, and methods to operate on different types while maintaining type checking.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Generics",
+    code: "List<String> strings = new ArrayList<String>();\nstrings.add(\"Hello\");\n// strings.add(123); // Compile error\n\nclass Box<T> {\n    private T item;\n    public void set(T item) { this.item = item; }\n    public T get() { return item; }\n}",
+    xpReward: 35
+  },
+  {
+    id: 71,
+    question: "What is the difference between ArrayList and LinkedList?",
+    answer: "ArrayList uses dynamic arrays (fast random access), LinkedList uses doubly-linked lists (fast insertion/deletion).",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Collections",
+    code: "ArrayList<String> arrayList = new ArrayList<>();\nLinkedList<String> linkedList = new LinkedList<>();\n\n// ArrayList: O(1) random access\n// LinkedList: O(1) insertion at ends",
+    xpReward: 35
+  },
+  {
+    id: 72,
+    question: "What is the String pool in Java?",
+    answer: "String pool is a special memory area where string literals are stored to optimize memory usage through string interning.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Memory Management",
+    code: "String s1 = \"hello\";        // Stored in string pool\nString s2 = \"hello\";        // References same object\nString s3 = new String(\"hello\"); // Creates new object\n\nSystem.out.println(s1 == s2); // true\nSystem.out.println(s1 == s3); // false",
+    xpReward: 35
+  },
+  {
+    id: 73,
+    question: "What are Java annotations?",
+    answer: "Annotations provide metadata about code elements, influencing compilation, runtime behavior, or code generation.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Annotations",
+    code: "@Override\npublic String toString() {\n    return \"Custom string representation\";\n}\n\n@Deprecated\npublic void oldMethod() {\n    // Legacy code\n}",
+    xpReward: 35
+  },
+  {
+    id: 74,
+    question: "What is the difference between abstract classes and interfaces?",
+    answer: "Abstract classes can have concrete methods and instance variables, interfaces (before Java 8) could only have abstract methods.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Object-Oriented Programming",
+    code: "abstract class Animal {\n    abstract void makeSound();\n    void sleep() { System.out.println(\"Sleeping...\"); }\n}\n\ninterface Flyable {\n    void fly(); // abstract by default\n}",
+    xpReward: 35
+  },
+  {
+    id: 75,
+    question: "What are lambda expressions in Java?",
+    answer: "Lambda expressions provide a concise way to represent anonymous functions, introduced in Java 8.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Functional Programming",
+    code: "// Traditional way\nRunnable r1 = new Runnable() {\n    public void run() { System.out.println(\"Hello\"); }\n};\n\n// Lambda expression\nRunnable r2 = () -> System.out.println(\"Hello\");",
+    xpReward: 35
+  },
+  {
+    id: 76,
+    question: "What are Java streams?",
+    answer: "Streams provide a functional approach to processing collections with operations like filter, map, and reduce.",
+    language: "Java",
+    difficulty: "advanced",
+    category: "Streams",
+    code: "List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);\nList<Integer> evenSquares = numbers.stream()\n    .filter(n -> n % 2 == 0)\n    .map(n -> n * n)\n    .collect(Collectors.toList());",
+    xpReward: 50
+  },
+  {
+    id: 77,
+    question: "What is the difference between checked and unchecked exceptions?",
+    answer: "Checked exceptions must be handled at compile time, unchecked exceptions (RuntimeException) are handled at runtime.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Exception Handling",
+    code: "// Checked exception - must handle\ntry {\n    FileReader file = new FileReader(\"file.txt\");\n} catch (FileNotFoundException e) {\n    // Handle exception\n}\n\n// Unchecked exception - optional handling\nint result = 10 / 0; // ArithmeticException",
+    xpReward: 35
+  },
+  {
+    id: 78,
+    question: "What is the synchronized keyword in Java?",
+    answer: "synchronized ensures thread safety by allowing only one thread to access a method or block at a time.",
+    language: "Java",
+    difficulty: "advanced",
+    category: "Concurrency",
+    code: "public class Counter {\n    private int count = 0;\n    \n    public synchronized void increment() {\n        count++;\n    }\n    \n    public synchronized int getCount() {\n        return count;\n    }\n}",
+    xpReward: 50
+  },
+  {
+    id: 79,
+    question: "What are Java enums?",
+    answer: "Enums define a fixed set of constants, providing type safety and additional functionality over simple constants.",
+    language: "Java",
+    difficulty: "beginner",
+    category: "Enums",
+    code: "enum Day {\n    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY\n}\n\nDay today = Day.MONDAY;\nswitch (today) {\n    case MONDAY:\n        System.out.println(\"Start of work week\");\n        break;\n}",
+    xpReward: 25
+  },
+  {
+    id: 80,
+    question: "What is garbage collection in Java?",
+    answer: "Garbage collection automatically reclaims memory used by objects that are no longer reachable or referenced.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Memory Management",
+    code: "// Object becomes eligible for GC when no references exist\nString str = new String(\"Hello\");\nstr = null; // Original string object now eligible for GC\n\n// Suggest GC (not guaranteed)\nSystem.gc();",
+    xpReward: 35
+  },
+  {
+    id: 81,
+    question: "What are static variables and methods in Java?",
+    answer: "Static members belong to the class rather than instances, shared among all objects of the class.",
+    language: "Java",
+    difficulty: "beginner",
+    category: "Static Members",
+    code: "class Counter {\n    private static int count = 0; // Shared among all instances\n    \n    public static void increment() {\n        count++;\n    }\n    \n    public static int getCount() {\n        return count;\n    }\n}",
+    xpReward: 25
+  },
+  {
+    id: 82,
+    question: "What is the difference between HashMap and TreeMap?",
+    answer: "HashMap offers O(1) average access with no ordering, TreeMap offers O(log n) access with sorted keys.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Collections",
+    code: "Map<String, Integer> hashMap = new HashMap<>(); // No ordering\nMap<String, Integer> treeMap = new TreeMap<>(); // Sorted by keys\n\nhashMap.put(\"c\", 3);\nhashMap.put(\"a\", 1);\nhashMap.put(\"b\", 2);\n// Order: c, a, b (insertion order or random)\n\ntreeMap.put(\"c\", 3);\ntreeMap.put(\"a\", 1);\ntreeMap.put(\"b\", 2);\n// Order: a, b, c (sorted)",
+    xpReward: 35
+  },
+  {
+    id: 83,
+    question: "What are constructors in Java?",
+    answer: "Constructors are special methods called when objects are created, used to initialize object state.",
+    language: "Java",
+    difficulty: "beginner",
+    category: "Constructors",
+    code: "class Person {\n    private String name;\n    private int age;\n    \n    // Default constructor\n    public Person() {\n        this.name = \"Unknown\";\n        this.age = 0;\n    }\n    \n    // Parameterized constructor\n    public Person(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }\n}",
+    xpReward: 25
+  },
+  {
+    id: 84,
+    question: "What is the difference between String, StringBuilder, and StringBuffer?",
+    answer: "String is immutable, StringBuilder is mutable and not thread-safe, StringBuffer is mutable and thread-safe.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Strings",
+    code: "String str = \"Hello\"; // Immutable\nstr += \" World\"; // Creates new String object\n\nStringBuilder sb = new StringBuilder(\"Hello\");\nsb.append(\" World\"); // Modifies existing buffer\n\nStringBuffer sbf = new StringBuffer(\"Hello\");\nsbf.append(\" World\"); // Thread-safe modification",
+    xpReward: 35
+  },
+  {
+    id: 85,
+    question: "What are Java packages?",
+    answer: "Packages organize related classes and interfaces, providing namespace management and access control.",
+    language: "Java",
+    difficulty: "beginner",
+    category: "Packages",
+    code: "package com.example.myapp;\n\nimport java.util.List;\nimport java.util.ArrayList;\n\npublic class MyClass {\n    private List<String> items = new ArrayList<>();\n}",
+    xpReward: 25
+  },
+  {
+    id: 86,
+    question: "What is polymorphism in Java?",
+    answer: "Polymorphism allows objects of different types to be treated as instances of the same type through inheritance or interfaces.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Object-Oriented Programming",
+    code: "Animal animal1 = new Dog();\nAnimal animal2 = new Cat();\n\nanimal1.makeSound(); // Calls Dog's implementation\nanimal2.makeSound(); // Calls Cat's implementation\n\n// Runtime polymorphism through method overriding",
+    xpReward: 35
+  },
+  {
+    id: 87,
+    question: "What are nested classes in Java?",
+    answer: "Nested classes are classes defined within other classes, including static nested classes and inner classes.",
+    language: "Java",
+    difficulty: "advanced",
+    category: "Nested Classes",
+    code: "class Outer {\n    private int outerVar = 10;\n    \n    // Static nested class\n    static class StaticNested {\n        void display() { System.out.println(\"Static nested\"); }\n    }\n    \n    // Inner class\n    class Inner {\n        void display() { System.out.println(outerVar); }\n    }\n}",
+    xpReward: 50
+  },
+  {
+    id: 88,
+    question: "What is the volatile keyword in Java?",
+    answer: "volatile ensures that variable reads and writes are directly to main memory, providing visibility across threads.",
+    language: "Java",
+    difficulty: "advanced",
+    category: "Concurrency",
+    code: "class SharedResource {\n    private volatile boolean flag = false;\n    \n    public void setFlag(boolean value) {\n        this.flag = value; // Immediately visible to other threads\n    }\n    \n    public boolean isFlag() {\n        return flag; // Always reads from main memory\n    }\n}",
+    xpReward: 50
+  },
+  {
+    id: 89,
+    question: "What are functional interfaces in Java?",
+    answer: "Functional interfaces have exactly one abstract method and can be used with lambda expressions and method references.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Functional Programming",
+    code: "@FunctionalInterface\ninterface Calculator {\n    int calculate(int a, int b);\n}\n\n// Using lambda expression\nCalculator add = (a, b) -> a + b;\nCalculator multiply = (a, b) -> a * b;\n\nint result = add.calculate(5, 3); // 8",
+    xpReward: 35
+  },
+  {
+    id: 90,
+    question: "What is the difference between final, finally, and finalize?",
+    answer: "final is a keyword for constants/inheritance prevention, finally is a block that always executes, finalize is a method called by GC.",
+    language: "Java",
+    difficulty: "intermediate",
+    category: "Keywords",
+    code: "final int CONSTANT = 10; // Cannot be changed\n\ntry {\n    // code\n} finally {\n    // Always executes\n}\n\nclass MyClass {\n    @Override\n    protected void finalize() throws Throwable {\n        // Called by garbage collector\n        super.finalize();\n    }\n}",
+    xpReward: 35
+  },
+
+  // C++ Flashcards (30 cards)
+  {
+    id: 91,
+    question: "What is the basic structure of a C++ program?",
+    answer: "A C++ program includes headers, namespace declarations, and a main() function as the entry point.",
+    language: "C++",
+    difficulty: "beginner",
+    category: "Basic Syntax",
+    code: "#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Hello, World!\" << endl;\n    return 0;\n}",
+    xpReward: 25
+  },
+  {
+    id: 92,
+    question: "What are pointers in C++?",
+    answer: "Pointers are variables that store memory addresses of other variables, enabling indirect access to values.",
+    language: "C++",
+    difficulty: "intermediate",
+    category: "Pointers",
+    code: "int x = 42;\nint* ptr = &x;  // ptr points to address of x\ncout << *ptr;   // prints 42 (dereference)\ncout << ptr;    // prints address of x",
+    xpReward: 35
+  },
+  {
+    id: 93,
+    question: "What is the difference between references and pointers in C++?",
+    answer: "References are aliases that must be initialized and cannot be reassigned, pointers can be reassigned and can be null.",
+    language: "C++",
+    difficulty: "intermediate",
+    category: "References vs Pointers",
+    code: "int x = 10, y = 20;\nint& ref = x;    // Reference must be initialized\nint* ptr = &x;   // Pointer can be reassigned\n\nref = y;         // Changes x to 20\nptr = &y;        // ptr now points to y",
+    xpReward: 35
+  },
+  {
+    id: 94,
+    question: "What are classes and objects in C++?",
+    answer: "Classes are user-defined types that encapsulate data and functions, objects are instances of classes.",
+    language: "C++",
+    difficulty: "beginner",
+    category: "Object-Oriented Programming",
+    code: "class Rectangle {\nprivate:\n    int width, height;\npublic:\n    Rectangle(int w, int h) : width(w), height(h) {}\n    int area() { return width * height; }\n};\n\nRectangle rect(5, 3);\ncout << rect.area(); // 15",
+    xpReward: 25
+  },
+  {
+    id: 95,
+    question: "What is dynamic memory allocation in C++?",
+    answer: "Dynamic memory allocation uses 'new' and 'delete' operators to allocate and deallocate memory at runtime.",
+    language: "C++",
+    difficulty: "intermediate",
+    category: "Memory Management",
+    code: "int* arr = new int[10];  // Allocate array of 10 integers\nfor (int i = 0; i < 10; i++) {\n    arr[i] = i * i;\n}\ndelete[] arr;  // Deallocate memory",
+    xpReward: 35
+  },
+  {
+    id: 96,
+    question: "What are constructors and destructors in C++?",
+    answer: "Constructors initialize objects when created, destructors clean up resources when objects are destroyed.",
+    language: "C++",
+    difficulty: "beginner",
+    category: "Constructors/Destructors",
+    code: "class MyClass {\npublic:\n    MyClass() { cout << \"Constructor called\" << endl; }\n    ~MyClass() { cout << \"Destructor called\" << endl; }\n};\n\nMyClass obj; // Constructor called automatically\n// Destructor called when obj goes out of scope",
+    xpReward: 25
+  },
+  {
+    id: 97,
+    question: "What is inheritance in C++?",
+    answer: "Inheritance allows classes to inherit properties and methods from base classes, promoting code reuse.",
+    language: "C++",
+    difficulty: "intermediate",
+    category: "Inheritance",
+    code: "class Animal {\nprotected:\n    string name;\npublic:\n    void eat() { cout << \"Eating...\" << endl; }\n};\n\nclass Dog : public Animal {\npublic:\n    void bark() { cout << \"Woof!\" << endl; }\n};",
+    xpReward: 35
+  },
+  {
+    id: 98,
+    question: "What are virtual functions in C++?",
+    answer: "Virtual functions enable runtime polymorphism, allowing derived classes to override base class methods.",
+    language: "C++",
+    difficulty: "advanced",
+    category: "Polymorphism",
+    code: "class Shape {\npublic:\n    virtual void draw() { cout << \"Drawing shape\" << endl; }\n};\n\nclass Circle : public Shape {\npublic:\n    void draw() override { cout << \"Drawing circle\" << endl; }\n};\n\nShape* shape = new Circle();\nshape->draw(); // Calls Circle's draw()",
+    xpReward: 50
+  },
+  {
+    id: 99,
+    question: "What are function templates in C++?",
+    answer: "Function templates allow writing generic functions that work with different data types.",
+    language: "C++",
+    difficulty: "intermediate",
+    category: "Templates",
+    code: "template <typename T>\nT maximum(T a, T b) {\n    return (a > b) ? a : b;\n}\n\nint maxInt = maximum(10, 20);        // Works with int\ndouble maxDouble = maximum(3.14, 2.71); // Works with double",
+    xpReward: 35
+  },
+  {
+    id: 100,
+    question: "What is the Standard Template Library (STL) in C++?",
+    answer: "STL provides containers, algorithms, and iterators for common data structures and operations.",
+    language: "C++",
+    difficulty: "intermediate",
+    category: "STL",
+    code: "#include <vector>\n#include <algorithm>\n\nvector<int> numbers = {3, 1, 4, 1, 5, 9};\nsort(numbers.begin(), numbers.end());\n\nfor (int num : numbers) {\n    cout << num << \" \";\n}",
+    xpReward: 35
+  },
+  {
+    id: 101,
+    question: "What are operator overloading in C++?",
+    answer: "Operator overloading allows custom classes to define behavior for built-in operators like +, -, ==, etc.",
+    language: "C++",
+    difficulty: "advanced",
+    category: "Operator Overloading",
+    code: "class Complex {\nprivate:\n    double real, imag;\npublic:\n    Complex(double r = 0, double i = 0) : real(r), imag(i) {}\n    \n    Complex operator+(const Complex& other) {\n        return Complex(real + other.real, imag + other.imag);\n    }\n};\n\nComplex c1(3, 4);\nComplex c2(1, 2);\nComplex c3 = c1 + c2; // Uses overloaded + operator",
+    xpReward: 50
+  },
+  {
+    id: 102,
+    question: "What are smart pointers in C++?",
+    answer: "Smart pointers automatically manage memory, preventing memory leaks and dangling pointers.",
+    language: "C++",
+    difficulty: "advanced",
+    category: "Smart Pointers",
+    code: "#include <memory>\n\nstd::unique_ptr<int> ptr1 = std::make_unique<int>(42);\nstd::shared_ptr<int> ptr2 = std::make_shared<int>(100);\nstd::weak_ptr<int> ptr3 = ptr2;\n\n// Memory automatically freed when smart pointers go out of scope",
+    xpReward: 50
+  },
+  {
+    id: 103,
+    question: "What is the difference between stack and heap memory?",
+    answer: "Stack memory is automatically managed and faster, heap memory is manually managed and larger but slower.",
+    language: "C++",
+    difficulty: "intermediate",
+    category: "Memory Management",
+    code: "int stackVar = 10;           // Stored on stack\nint* heapVar = new int(20);  // Stored on heap\n\n// Stack variables automatically cleaned up\n// Heap variables must be manually deleted\ndelete heapVar;",
+    xpReward: 35
+  },
+  {
+    id: 104,
+    question: "What are const and static keywords in C++?",
+    answer: "const makes variables immutable, static gives variables class-level scope or function-level persistence.",
+    language: "C++",
+    difficulty: "beginner",
+    category: "Keywords",
+    code: "class MyClass {\nprivate:\n    static int count;        // Shared among all instances\n    const int id;           // Cannot be changed after initialization\n    \npublic:\n    MyClass(int i) : id(i) { count++; }\n    static int getCount() { return count; }\n};\n\nint MyClass::count = 0;",
+    xpReward: 25
+  },
+  {
+    id: 105,
+    question: "What are inline functions in C++?",
+    answer: "Inline functions are expanded at compile time instead of being called, reducing function call overhead.",
+    language: "C++",
+    difficulty: "intermediate",
+    category: "Functions",
+    code: "inline int square(int x) {\n    return x * x;\n}\n\n// Compiler replaces square(5) with (5 * 5)\nint result = square(5); // Expanded to: int result = 25;",
+    xpReward: 35
+  },
+  {
+    id: 106,
+    question: "What are namespaces in C++?",
+    answer: "Namespaces group related code and prevent naming conflicts by providing separate scopes.",
+    language: "C++",
+    difficulty: "beginner",
+    category: "Namespaces",
+    code: "namespace Math {\n    int add(int a, int b) {\n        return a + b;\n    }\n    const double PI = 3.14159;\n}\n\nint result = Math::add(5, 3);\ndouble circumference = 2 * Math::PI * radius;",
+    xpReward: 25
+  },
+  {
+    id: 107,
+    question: "What is multiple inheritance in C++?",
+    answer: "Multiple inheritance allows a class to inherit from multiple base classes, inheriting features from all.",
+    language: "C++",
+    difficulty: "advanced",
+    category: "Multiple Inheritance",
+    code: "class Flyable {\npublic:\n    virtual void fly() = 0;\n};\n\nclass Swimmable {\npublic:\n    virtual void swim() = 0;\n};\n\nclass Duck : public Flyable, public Swimmable {\npublic:\n    void fly() override { cout << \"Duck flying\" << endl; }\n    void swim() override { cout << \"Duck swimming\" << endl; }\n};",
+    xpReward: 50
+  },
+  {
+    id: 108,
+    question: "What are abstract classes in C++?",
+    answer: "Abstract classes contain at least one pure virtual function and cannot be instantiated directly.",
+    language: "C++",
+    difficulty: "advanced",
+    category: "Abstract Classes",
+    code: "class Shape {  // Abstract class\npublic:\n    virtual void draw() = 0;  // Pure virtual function\n    virtual double area() = 0;\n};\n\nclass Circle : public Shape {\npublic:\n    void draw() override { cout << \"Drawing circle\" << endl; }\n    double area() override { return 3.14 * radius * radius; }\n};",
+    xpReward: 50
+  },
+  {
+    id: 109,
+    question: "What are friend functions in C++?",
+    answer: "Friend functions can access private and protected members of a class, breaking encapsulation when needed.",
+    language: "C++",
+    difficulty: "intermediate",
+    category: "Friend Functions",
+    code: "class Box {\nprivate:\n    int width;\n    friend void printWidth(Box& b);  // Friend function declaration\n    \npublic:\n    Box(int w) : width(w) {}\n};\n\nvoid printWidth(Box& b) {\n    cout << \"Width: \" << b.width << endl;  // Can access private member\n}",
+    xpReward: 35
+  },
+  {
+    id: 110,
+    question: "What is the this pointer in C++?",
+    answer: "The this pointer is an implicit parameter that points to the current object instance within member functions.",
+    language: "C++",
+    difficulty: "intermediate",
+    category: "This Pointer",
+    code: "class MyClass {\nprivate:\n    int value;\n    \npublic:\n    void setValue(int value) {\n        this->value = value;  // Distinguish between parameter and member\n    }\n    \n    MyClass& getReference() {\n        return *this;  // Return reference to current object\n    }\n};",
+    xpReward: 35
+  },
+  {
+    id: 111,
+    question: "What are copy constructors in C++?",
+    answer: "Copy constructors create new objects as copies of existing objects, handling deep vs shallow copying.",
+    language: "C++",
+    difficulty: "intermediate",
+    category: "Copy Constructor",
+    code: "class MyClass {\nprivate:\n    int* data;\n    \npublic:\n    MyClass(int val) : data(new int(val)) {}\n    \n    // Copy constructor for deep copy\n    MyClass(const MyClass& other) {\n        data = new int(*other.data);\n    }\n    \n    ~MyClass() { delete data; }\n};",
+    xpReward: 35
+  },
+  {
+    id: 112,
+    question: "What are lambda expressions in C++?",
+    answer: "Lambda expressions create anonymous functions that can capture variables from their surrounding scope.",
+    language: "C++",
+    difficulty: "advanced",
+    category: "Lambda Expressions",
+    code: "auto add = [](int a, int b) -> int {\n    return a + b;\n};\n\nint x = 10;\nauto addX = [x](int y) -> int {\n    return x + y;  // Captures x by value\n};\n\nint result = addX(5); // 15",
+    xpReward: 50
+  },
+  {
+    id: 113,
+    question: "What is RAII in C++?",
+    answer: "RAII (Resource Acquisition Is Initialization) ties resource management to object lifetime, ensuring cleanup.",
+    language: "C++",
+    difficulty: "advanced",
+    category: "RAII",
+    code: "class FileManager {\nprivate:\n    FILE* file;\n    \npublic:\n    FileManager(const char* filename) {\n        file = fopen(filename, \"r\");  // Acquire resource\n    }\n    \n    ~FileManager() {\n        if (file) fclose(file);  // Release resource\n    }\n};",
+    xpReward: 50
+  },
+  {
+    id: 114,
+    question: "What are move semantics in C++11?",
+    answer: "Move semantics allow efficient transfer of resources from temporary objects, avoiding unnecessary copying.",
+    language: "C++",
+    difficulty: "advanced",
+    category: "Move Semantics",
+    code: "class MyClass {\nprivate:\n    int* data;\n    \npublic:\n    // Move constructor\n    MyClass(MyClass&& other) noexcept {\n        data = other.data;      // Steal the resource\n        other.data = nullptr;   // Leave other in valid state\n    }\n    \n    // Move assignment operator\n    MyClass& operator=(MyClass&& other) noexcept {\n        if (this != &other) {\n            delete data;\n            data = other.data;\n            other.data = nullptr;\n        }\n        return *this;\n    }\n};",
+    xpReward: 50
+  },
+  {
+    id: 115,
+    question: "What are variadic templates in C++?",
+    answer: "Variadic templates allow functions and classes to accept a variable number of template arguments.",
+    language: "C++",
+    difficulty: "advanced",
+    category: "Variadic Templates",
+    code: "template<typename... Args>\nvoid print(Args... args) {\n    ((cout << args << \" \"), ...);\n    cout << endl;\n}\n\nprint(1, 2.5, \"hello\", 'c'); // Prints: 1 2.5 hello c\n\ntemplate<typename T, typename... Args>\nT sum(T first, Args... args) {\n    return first + sum(args...);\n}",
+    xpReward: 50
+  },
+  {
+    id: 116,
+    question: "What is the difference between struct and class in C++?",
+    answer: "struct members are public by default, class members are private by default. Otherwise, they're identical.",
+    language: "C++",
+    difficulty: "beginner",
+    category: "Struct vs Class",
+    code: "struct Point {  // Members public by default\n    int x, y;\n    Point(int x, int y) : x(x), y(y) {}\n};\n\nclass Rectangle {  // Members private by default\n    int width, height;\npublic:\n    Rectangle(int w, int h) : width(w), height(h) {}\n};",
+    xpReward: 25
+  },
+  {
+    id: 117,
+    question: "What are auto and decltype keywords in C++11?",
+    answer: "auto automatically deduces variable types, decltype deduces the type of an expression.",
+    language: "C++",
+    difficulty: "intermediate",
+    category: "Type Deduction",
+    code: "auto x = 42;           // x is int\nauto y = 3.14;         // y is double\nauto z = \"hello\";      // z is const char*\n\nint a = 10;\ndecltype(a) b = 20;    // b is int\ndecltype(a + b) c = 30; // c is int",
+    xpReward: 35
+  },
+  {
+    id: 118,
+    question: "What are constexpr functions in C++?",
+    answer: "constexpr functions can be evaluated at compile time if given constant expressions as arguments.",
+    language: "C++",
+    difficulty: "advanced",
+    category: "Constexpr",
+    code: "constexpr int factorial(int n) {\n    return (n <= 1) ? 1 : n * factorial(n - 1);\n}\n\nconstexpr int result = factorial(5); // Computed at compile time\nstatic_assert(result == 120, \"Error in factorial\");",
+    xpReward: 50
+  },
+  {
+    id: 119,
+    question: "What are range-based for loops in C++11?",
+    answer: "Range-based for loops provide a concise way to iterate over containers and arrays.",
+    language: "C++",
+    difficulty: "beginner",
+    category: "Range-based For",
+    code: "vector<int> numbers = {1, 2, 3, 4, 5};\n\n// Range-based for loop\nfor (const auto& num : numbers) {\n    cout << num << \" \";\n}\n\n// Traditional for loop equivalent\nfor (size_t i = 0; i < numbers.size(); ++i) {\n    cout << numbers[i] << \" \";\n}",
+    xpReward: 25
+  },
+  {
+    id: 120,
+    question: "What are the different types of casts in C++?",
+    answer: "C++ provides static_cast, dynamic_cast, const_cast, and reinterpret_cast for different casting scenarios.",
+    language: "C++",
+    difficulty: "advanced",
+    category: "Casting",
+    code: "// static_cast - compile time type conversion\nfloat f = 3.14;\nint i = static_cast<int>(f);\n\n// dynamic_cast - runtime type checking\nBase* base = new Derived();\nDerived* derived = dynamic_cast<Derived*>(base);\n\n// const_cast - remove/add const\nconst int x = 10;\nint* px = const_cast<int*>(&x);\n\n// reinterpret_cast - reinterpret bit pattern\nint* ptr = reinterpret_cast<int*>(0x12345678);",
+    xpReward: 50
+  }
 ];
 
-export const getFlashcardsByLanguage = (language: string) => {
+export const getFlashcardsByLanguage = (language: string): FlashcardData[] => {
+  if (language === "All") return flashcardsData;
   return flashcardsData.filter(card => card.language === language);
 };
 
-export const getFlashcardsByDifficulty = (difficulty: 'beginner' | 'intermediate' | 'advanced') => {
+export const getFlashcardsByDifficulty = (difficulty: string): FlashcardData[] => {
+  if (difficulty === "All") return flashcardsData;
   return flashcardsData.filter(card => card.difficulty === difficulty);
-};
-
-export const getFlashcardsByCategory = (category: string) => {
-  return flashcardsData.filter(card => card.category === category);
 };
